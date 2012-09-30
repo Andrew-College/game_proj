@@ -1,4 +1,4 @@
-﻿Build started 30/09/2012 14:42:20.
+﻿Build started 30/09/2012 19:07:42.
      1>Project "C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\game_proj\game_proj.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\game_proj.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -23,4 +23,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.43
+Time Elapsed 00:00:03.01
