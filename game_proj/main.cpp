@@ -13,6 +13,15 @@ int main(){
 int main_menu(){
 	int choice = 0;
 	welcome();
+	cout << "MINI GOLF MANIA" << endl << endl;
+	cout << "Main Menu" << endl << "1. How to play." << endl << "2. Play Now!" << endl <<"3. High Scores." << endl <<"4. Quit";
+	do{
+	switch (choice){
+	case 1:
+		
+	
+	}
+
 	return 0;
 }
 int welcome(/*Say hello to the nice people*/){
