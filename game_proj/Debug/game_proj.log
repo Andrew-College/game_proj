@@ -1,10 +1,11 @@
-﻿Build started 30/09/2012 19:07:42.
+﻿Build started 30/09/2012 20:58:13.
      1>Project "C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\game_proj\game_proj.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\game_proj.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
+     1>c:\users\andmin\documents\visual studio 2010\projects\game_proj\game_proj\main.cpp(82): warning C4018: '<' : signed/unsigned mismatch
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
@@ -23,4 +24,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.01
+Time Elapsed 00:00:02.55
