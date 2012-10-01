@@ -39,7 +39,7 @@ int main_menu(){
 		cout << "MINI GOLF MANIA" << endl << endl;
 		cout << "Main Menu" << endl << "1. How to play." << endl << "2. Play Now!" << endl <<"3. High Scores." << endl <<"4. Quit"<<endl<<endl;
 		cin >> choice;
-		while(isAnInt(choice)){
+		while(isdigit(choice)){
 			switch (choice){
 			case 1:
 				tutorial();
@@ -108,6 +108,8 @@ int highScore(){
 	return 0;
 }
 //Validators
+/*
 bool isAnInt(int test){
 	return(isdigit(test) && test < 32767 && test > -32767)?true:false;
 }
+*/
