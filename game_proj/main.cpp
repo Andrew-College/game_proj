@@ -39,7 +39,7 @@ int main_menu(){
 		cout << "MINI GOLF MANIA" << endl << endl;
 		cout << "Main Menu" << endl << "1. How to play." << endl << "2. Play Now!" << endl <<"3. High Scores." << endl <<"4. Quit"<<endl<<endl;
 		cin >> choice;
-		while(/*isdigit(choice)*/1==1){
+		if(isdigit(choice)){
 			switch (choice){
 			case 1:
 				tutorial();
@@ -90,20 +90,11 @@ int welcome(/*Say hello to the nice people*/){
 //Where the menu switchs are sent
 int tutorial(){
 	/*Load tutorial map*/
-	cout << "W";
-	cout << "e";
-	cout << "l";
-	cout << "c";
-	cout << "o";
-	cout << "m";
-	cout << "e";
-	cout << " ";
-	cout << "t";
-	cout << "o";
-	cout << " ";
-	cout << "t";
-	cout << "h";
-	cout << "e";
+	string welcome = "Welcome to the";
+	for(int i = 0; i < welcome.size(); i++){
+		cout << welcome[i] << endl;
+		Sleep(100);
+	}
 	system("cls");
 
 	cout << "MINI GOLF MANIA";
@@ -115,7 +106,16 @@ int tutorial(){
 	Sleep(50);
 	system("color 79");
 	Sleep(50);
+	system("color 04");
+	Sleep(50);
+	system("color 31");
+	Sleep(50);
+	system("color F0");
+	Sleep(50);
+	system("color 79");
+	Sleep(50);
 	system("cls");
+	system("Color 0F");
 	return 0;
 }
 int highScore(){
@@ -131,11 +131,6 @@ int highScore(){
 	cout << "returning to main menu"<< endl;
 	Sleep(2000);
 	system("cls");
+
 	return 0;
 }
-//Validators
-/*
-bool isAnInt(int test){
-	return(isdigit(test) && test < 32767 && test > -32767)?true:false;
-}
-*/
