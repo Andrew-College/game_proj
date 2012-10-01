@@ -11,7 +11,7 @@ using namespace std;
 //declaring variables
 int main_menu();
 int welcome();
-void tutorial();
+int tutorial();
 int highScore();
 int highScore_score();
 int test;
@@ -39,7 +39,7 @@ int main_menu(){
 		cout << "MINI GOLF MANIA" << endl << endl;
 		cout << "Main Menu" << endl << "1. How to play." << endl << "2. Play Now!" << endl <<"3. High Scores." << endl <<"4. Quit"<<endl<<endl;
 		cin >> choice;
-		while(isdigit(choice)){
+		while(/*isdigit(choice)*/1==1){
 			switch (choice){
 			case 1:
 				tutorial();
@@ -88,9 +88,35 @@ int welcome(/*Say hello to the nice people*/){
 	return 0;
 }
 //Where the menu switchs are sent
-void tutorial(){
+int tutorial(){
 	/*Load tutorial map*/
+	cout << "W";
+	cout << "e";
+	cout << "l";
+	cout << "c";
+	cout << "o";
+	cout << "m";
+	cout << "e";
+	cout << " ";
+	cout << "t";
+	cout << "o";
+	cout << " ";
+	cout << "t";
+	cout << "h";
+	cout << "e";
+	system("cls");
 
+	cout << "MINI GOLF MANIA";
+	system("color 04");
+	Sleep(50);
+	system("color 31");
+	Sleep(50);
+	system("color F0");
+	Sleep(50);
+	system("color 79");
+	Sleep(50);
+	system("cls");
+	return 0;
 }
 int highScore(){
 	if(score.size()!=0){
