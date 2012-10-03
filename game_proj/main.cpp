@@ -1,10 +1,7 @@
-//pre-compile Includes
-#include <stdio.h>
-#include <conio.h>
-#include <iostream>
-#include <Windows.h>
-#include <vector>
-#include <ctype.h>
+//local includes
+#include "includers.h"
+#include "worldObjects.h"
+#include "validator.h"
 
 //namespace section
 using namespace std;
@@ -14,20 +11,13 @@ int welcome();
 int tutorial();
 int highScore();
 int highScore_score();
+bool isItInt();
 int test;
 int game();
 void drawMap();
 int i = 0;
 int j = 0;
-//The map elements
-char ball = '*';//Your golf ball
-char hole = '#';
-char O_O_B = 'H';//Out of bounds area (should surround area)
-char diagWallF = '/';
-char diagWallB = '\\';//The backslash is an escape character, so it needs to be escaped
-string vertWall = "||";//It is a double to distinguish it from the direction selector
-char horizWall = '_';
-//end of map elements
+
 //position of objects in map
 int xBall;
 int yBall;
@@ -37,6 +27,7 @@ int yHole;
 
 vector <int> score;//the ArrayList the scores will be stored in
 
+using namespace std;
 ///////////////////////////////////////////
 //All the method names are human-readable//
 ///////////////////////////////////////////
@@ -46,6 +37,7 @@ int main(){
 	main_menu();
 	return 0;
 }
+
 
 int main_menu(){
 	int choice = 0;
@@ -57,8 +49,7 @@ int main_menu(){
 		choice = 0;
 		cout << "MINI GOLF MANIA" << endl << endl;
 		cout << "Main Menu" << endl << "1. How to play." << endl << "2. Play Now!" << endl <<"3. High Scores." << endl <<"4. Quit"<<endl<<endl;
-		cin >> choice;
-		if(/*isdigit(choice) thi is commented out because its causing the code to stop, even with ints*/ 1==1){
+		if(isItInt()){
 			switch (choice){
 			case 1:
 				tutorial();
@@ -71,6 +62,7 @@ int main_menu(){
 				break;
 			}
 		}
+		cin.clear();
 	}while(choice != 4);
 	return 0;
 }
@@ -143,9 +135,10 @@ int tutorial(){
 	return 0;
 }
 int game(){
-	for(int i = 0; i <= 13; i++){
-		drawMap();
-	}
+	//for(int i = 0; i <= 13; i++){
+	drawMap();
+	Sleep (3000);
+	//}
 	return 0;
 }
 int highScore(){
@@ -167,23 +160,23 @@ int highScore(){
 void drawMap(/*int xBall, int yBall, map <will be used, when I learn to read .txts>, int xHole, int yHole*/){
 
 	/*for(i = 0; i < 13; i++){
-		//not using the x,y coords here, this is just testing
-		cout << std::string(20,horizWall) << endl;
-		cout << vertWall << std::string(18," ") << vertWall <<endl;
-		cout<< vertWall << std::string(18," ") << vertWall <<endl;
-		cout<< vertWall << std::string(18," ") << vertWall <<endl;
-		cout<< vertWall << std::string(18," ") << vertWall <<endl;
-		cout<< vertWall << std::string(18," ") << vertWall <<endl;
-		cout<< vertWall << std::string(18," ") << vertWall <<endl;
-		cout<< vertWall << std::string(18," ") << vertWall <<endl;
-		cout<< vertWall << std::string(18," ") << vertWall <<endl;
-		cout<< std::string(20,horizWall) << endl;
+	//not using the x,y coords here, this is just testing
+	cout << std::string(20,horizWall) << endl;
+	cout << vertWall << std::string(18," ") << vertWall <<endl;
+	cout<< vertWall << std::string(18," ") << vertWall <<endl;
+	cout<< vertWall << std::string(18," ") << vertWall <<endl;
+	cout<< vertWall << std::string(18," ") << vertWall <<endl;
+	cout<< vertWall << std::string(18," ") << vertWall <<endl;
+	cout<< vertWall << std::string(18," ") << vertWall <<endl;
+	cout<< vertWall << std::string(18," ") << vertWall <<endl;
+	cout<< vertWall << std::string(18," ") << vertWall <<endl;
+	cout<< std::string(20,horizWall) << endl;
 	} doesnt't work, Overload error and have to set i in the for loop*/
 	//this is just to test the direction selector
 	/*for(i = 0; i < map height; i++){
-		for(j = 0; j < map length; i++){
-			//in here there needs to be the accross stuff some of the walls, ball and hole, dont worry future me, them rats are churning
-			run through the map, line by line and print whatever the cursor is currently over, skipping if a particular thing <the ball> is in that x,y coord
-		}
+	for(j = 0; j < map length; i++){
+	//in here there needs to be the accross stuff some of the walls, ball and hole, dont worry future me, them rats are churning
+	run through the map, line by line and print whatever the cursor is currently over, skipping if a particular thing <the ball> is in that x,y coord
+	}
 	}*/
 }
