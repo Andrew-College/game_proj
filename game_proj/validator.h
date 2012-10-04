@@ -1,16 +1,16 @@
 #include "includers.h"
+#include <iostream>
 
 using namespace std;
-bool isItInt(){
+
+bool isItInt(int choice){
 	//Will validate integer
-	int choice;
-	if(!(cin >> choice)){
+	if(!(choice)){
 		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max, '\n');
-		cout << "invalid input.";
+		cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+		cout << "invalid input.\n";
 		Sleep(2000);
 		system("cls");
-		//cout << prompt;
 		return false;
 	}
 	return true;

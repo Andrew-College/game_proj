@@ -2,6 +2,7 @@
 #include "includers.h"
 #include "worldObjects.h"
 #include "validator.h"
+#include <vector>
 
 //namespace section
 using namespace std;
@@ -10,7 +11,6 @@ int main_menu();
 int welcome();
 int tutorial();
 int highScore();
-int highScore_score();
 bool isItInt();
 int test;
 int game();
@@ -24,8 +24,6 @@ int yBall;
 int xHole;
 int yHole;
 //end of position objects
-
-vector <int> score;//the ArrayList the scores will be stored in
 
 using namespace std;
 ///////////////////////////////////////////
@@ -49,7 +47,8 @@ int main_menu(){
 		choice = 0;
 		cout << "MINI GOLF MANIA" << endl << endl;
 		cout << "Main Menu" << endl << "1. How to play." << endl << "2. Play Now!" << endl <<"3. High Scores." << endl <<"4. Quit"<<endl<<endl;
-		if(isItInt()){
+		cin >> choice;
+		if(isItInt(choice)){
 			switch (choice){
 			case 1:
 				tutorial();
@@ -60,10 +59,16 @@ int main_menu(){
 			case 3:
 				highScore();
 				break;
+			case 4:
+				break;
+			default:
+				cout << "invalid choice";
+				Sleep(3000);
+				break;
 			}
 		}
-		cin.clear();
 	}while(choice != 4);
+
 	return 0;
 }
 int welcome(/*Say hello to the nice people*/){
@@ -136,20 +141,22 @@ int tutorial(){
 }
 int game(){
 	//for(int i = 0; i <= 13; i++){
-	drawMap();
+	//drawMap();
 	Sleep (3000);
 	//}
 	return 0;
 }
 int highScore(){
+	/*
 	if(score.size()!=0){
-		for(int i = 0; i < score.size(); i++){
-			cout << /*placeholder for names <<*/ score.at(i)<< flush <<endl;
-			Sleep(300);
-		}
-	}else{
-		cout << "no scores here yet!" << endl;
+	for(int i = 0; i < score.size(); i++){
+	cout << /*placeholder for names << score.at(i)<< flush <<endl;
+	Sleep(300);
 	}
+	}else{
+	*/
+	cout << "no scores here yet!" << endl;
+	//}
 	Sleep(4000);
 	cout << "returning to main menu"<< endl;
 	Sleep(2000);
@@ -157,26 +164,15 @@ int highScore(){
 
 	return 0;
 }
-void drawMap(/*int xBall, int yBall, map <will be used, when I learn to read .txts>, int xHole, int yHole*/){
-
-	/*for(i = 0; i < 13; i++){
-	//not using the x,y coords here, this is just testing
-	cout << std::string(20,horizWall) << endl;
-	cout << vertWall << std::string(18," ") << vertWall <<endl;
-	cout<< vertWall << std::string(18," ") << vertWall <<endl;
-	cout<< vertWall << std::string(18," ") << vertWall <<endl;
-	cout<< vertWall << std::string(18," ") << vertWall <<endl;
-	cout<< vertWall << std::string(18," ") << vertWall <<endl;
-	cout<< vertWall << std::string(18," ") << vertWall <<endl;
-	cout<< vertWall << std::string(18," ") << vertWall <<endl;
-	cout<< vertWall << std::string(18," ") << vertWall <<endl;
-	cout<< std::string(20,horizWall) << endl;
-	} doesnt't work, Overload error and have to set i in the for loop*/
-	//this is just to test the direction selector
-	/*for(i = 0; i < map height; i++){
-	for(j = 0; j < map length; i++){
-	//in here there needs to be the accross stuff some of the walls, ball and hole, dont worry future me, them rats are churning
-	run through the map, line by line and print whatever the cursor is currently over, skipping if a particular thing <the ball> is in that x,y coord
+void drawMap(string mapName){
+	/*
+	vector<string> lines;
+	ifstream inFile(mapName);
+	if(inFile){
+	cout << "map loaded!";
+	Sleep(3000);
+	system("cls");
+	//todo figure out how to get number of lines used (pos. have separate operation to convert lines into output?)
 	}
-	}*/
+	*/
 }
