@@ -1,8 +1,9 @@
 //local includes
 #include "includers.h"
-#include "worldObjects.h"
+//#include "worldObjects.h"
 #include "validator.h"
 #include <vector>
+#include <string>
 
 //namespace section
 using namespace std;
@@ -12,6 +13,7 @@ int welcome();
 int tutorial();
 int highScore();
 bool isItInt();
+bool load();
 int test;
 int game();
 void drawMap();
@@ -32,6 +34,7 @@ using namespace std;
 
 //The main part, the bit that calls everything
 int main(){
+	welcome();
 	main_menu();
 	return 0;
 }
@@ -40,7 +43,7 @@ int main(){
 int main_menu(){
 	int choice = 0;
 	bool end = false;
-	welcome();
+
 
 	do{
 		system("cls");
@@ -105,6 +108,9 @@ int welcome(/*Say hello to the nice people*/){
 }
 //Where the menu switchs are sent
 int tutorial(){
+	string line;
+	//If the file opened correctly then call load methods
+	
 	/*Load tutorial map*/
 	system("cls");
 	string welcome = "Welcome to the";
@@ -137,6 +143,24 @@ int tutorial(){
 	system("Color 0F");
 	cout << "tutorial";
 	Sleep(800);
+	system("cls");
+	//load("tutorial.txt");
+		
+	ifstream myfile ("tutorial.txt");
+	if (myfile.is_open())
+	{
+		while ( myfile.good() )
+		{
+			getline (myfile,line);
+			cout << line << endl;
+		}
+		myfile.close();
+
+	} else{
+
+		cout << "ERROR: can't open file." << endl;
+	
+	}
 	return 0;
 }
 int game(){
@@ -164,15 +188,24 @@ int highScore(){
 
 	return 0;
 }
-void drawMap(string mapName){
-	/*
-	vector<string> lines;
-	ifstream inFile(mapName);
-	if(inFile){
-	cout << "map loaded!";
-	Sleep(3000);
-	system("cls");
-	//todo figure out how to get number of lines used (pos. have separate operation to convert lines into output?)
+/*
+bool load(string input){
+	string line;
+	ifstream myfile (input);
+	if (myfile.is_open())
+	{
+		while ( myfile.good() )
+		{
+			getline (myfile,line);
+			cout << line << endl;
+		}
+		myfile.close();
+
+	} else{
+
+		cout << "ERROR: can't open file." << endl;
+		return false;
 	}
-	*/
+	return true;
 }
+*/

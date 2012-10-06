@@ -20,9 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="worldObjects.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="validator.h">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -79,7 +79,6 @@
   <ItemGroup>
     <ClInclude Include="includers.h" />
     <ClInclude Include="validator.h" />
-    <ClInclude Include="worldObjects.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
