@@ -161,6 +161,7 @@ int tutorial(){
 		cout << "ERROR: can't open file." << endl;
 	
 	}
+	Sleep(3000);
 	return 0;
 }
 int game(){
