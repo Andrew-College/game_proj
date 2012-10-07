@@ -16,7 +16,11 @@ bool isItInt();
 bool load();
 int test;
 int game();
-void drawMap();
+void drawMap();	
+void printCbyC(string input, int wait);
+int findBall();
+void setCursorPos(int x, int y);
+COORD coord = {};
 int i = 0;
 int j = 0;
 
@@ -110,7 +114,7 @@ int welcome(/*Say hello to the nice people*/){
 int tutorial(){
 	string line;
 	//If the file opened correctly then call load methods
-	
+
 	/*Load tutorial map*/
 	system("cls");
 	string welcome = "Welcome to the";
@@ -145,7 +149,7 @@ int tutorial(){
 	Sleep(800);
 	system("cls");
 	//load("tutorial.txt");
-		
+
 	ifstream myfile ("tutorial.txt");
 	if (myfile.is_open())
 	{
@@ -158,10 +162,16 @@ int tutorial(){
 
 	} else{
 
-		cout << "ERROR: can't open file." << endl;
-	
+		cout << "ERROR: can't open file. Are you sure you entered the right name?" << endl;
+
 	}
+	Sleep(2000);
+	printCbyC("This is the map, it consists of the ball, \"*\", a hole \"#\", the ground \",\", and the walls \"|,_,/, \\\"",150);
+	Sleep(2000);
+	printCbyC("\nTo complete the level, you must put the ball into the hole in the least amount of strokes.", 150);
 	Sleep(3000);
+	findBall();
+	system("cls");
 	return 0;
 }
 int game(){
@@ -189,24 +199,34 @@ int highScore(){
 
 	return 0;
 }
+void printCbyC(string input, int wait){
+	for(int i = 0; i < input.size(); i++){
+		cout << input[i];
+		Sleep(wait);
+	}
+}
+void setCursorPos(int x, int y){
+	coord = {x,y};
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
 /*
 bool load(string input){
-	string line;
-	ifstream myfile (input);
-	if (myfile.is_open())
-	{
-		while ( myfile.good() )
-		{
-			getline (myfile,line);
-			cout << line << endl;
-		}
-		myfile.close();
+string line;
+ifstream myfile (input);
+if (myfile.is_open())
+{
+while ( myfile.good() )
+{
+getline (myfile,line);
+cout << line << endl;
+}
+myfile.close();
 
-	} else{
+} else{
 
-		cout << "ERROR: can't open file." << endl;
-		return false;
-	}
-	return true;
+cout << "ERROR: can't open file." << endl;
+return false;
+}
+return true;
 }
 */
