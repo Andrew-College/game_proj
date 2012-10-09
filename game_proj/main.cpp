@@ -16,14 +16,19 @@ bool isItInt();
 bool load(string input);
 int test;
 int game();
-void drawMap();	
+void setAngle(int x, int y);
 void printCbyC(string input, int wait);
+void setCursor(int x, int y);
 int findBall();
 void setCursorPos(int x, int y);
 int ballX = 0;
+int ballY = 0;
+int angleX = 0;
+int angleY = 0;
+string line = "";
 int i = 0;
 int j = 0;
-
+char cache = 'H';
 
 using namespace std;
 ///////////////////////////////////////////
@@ -138,15 +143,16 @@ int tutorial(){
 	load("tutorial.txt");
 
 
-	Sleep(50000);
+	Sleep(3000);
 	printCbyC("This is the map, it consists of the ball, \"*\",\na hole \"#\", the ground \",\", the out-of-bounds area \"H\"\n and the walls \"|,_,/, \\\"\n",150);
 	Sleep(2000);
 	printCbyC("\nTo complete the level, you must put the ball \ninto the hole in the least amount of strokes.", 150);
 	Sleep(1500);
 	printCbyC("\n\nYour first option is to select where your ball will go...\n\nPress enter when you want to select the distance", 150);
 	Sleep(1500);
-	//findBall();
-
+	setCursor(ballX,ballY);
+	setAngle(ballX, ballY);
+	Sleep(3000);
 	system("cls");
 	return 0;
 }
@@ -185,15 +191,11 @@ void printCbyC(string input, int wait){
 		Sleep(wait);
 	}
 }
-/*
-void setCursorPos(int x, int y){
-coord = {x,y};
-SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
-*/
 
 bool load(string input){
-	string line;
+	ballY = 0;
+	ballX = 0;
+	line = "";
 	ifstream myfile (input);
 	if (myfile.is_open())
 	{
@@ -201,10 +203,10 @@ bool load(string input){
 		{
 			getline (myfile,line);
 			cout << line << endl;
-			if(line.find('*')){
+			if(line.find('*') != -1){
 				ballX = line.find('*');	
-				cout << ballX << endl;
-			}else{
+			}else if(line.find('*') == -1 && ballX == 0){
+				ballY++;
 			}
 		}
 		myfile.close();
@@ -215,4 +217,33 @@ bool load(string input){
 		return false;
 	}
 	return true;
+}
+void setAngle(int x, int y){
+	do{
+		setCursor(ballX,(ballY+1));
+		cout << "|";
+		Sleep(1000);
+		setCursor(ballX,ballY+1);
+		cout << ",";
+		setCursor(ballX-1,ballY+1);
+		cout << "/";
+		Sleep(1000);
+		setCursor(ballX-1,ballY+1);
+		cout << ",";
+		setCursor(ballX-1,ballY);
+		cout << "-";
+		Sleep(1000);
+		setCursor(ballX-1,ballY);
+		cout << ",";
+		setCursor(ballX-1,ballY-1);
+		cout << "\\";
+		Sleep(1000);
+		setCursor(ballX-1,ballY-1);
+		cout << ",";
+		setCursor(ballX,(ballY-1));
+		cout << "|";
+		Sleep(1000);
+		setCursor(ballX,ballY-1);
+		cout << ",";
+	}while(!(cin.ignore((numeric_limits<streamsize>::max)(), '\n')));
 }
