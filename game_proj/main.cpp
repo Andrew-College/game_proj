@@ -13,23 +13,17 @@ int welcome();
 int tutorial();
 int highScore();
 bool isItInt();
-bool load();
+bool load(string input);
 int test;
 int game();
 void drawMap();	
 void printCbyC(string input, int wait);
 int findBall();
 void setCursorPos(int x, int y);
-COORD coord = {};
+int ballX = 0;
 int i = 0;
 int j = 0;
 
-//position of objects in map
-int xBall;
-int yBall;
-int xHole;
-int yHole;
-//end of position objects
 
 using namespace std;
 ///////////////////////////////////////////
@@ -67,7 +61,7 @@ int main_menu(){
 				highScore();
 				break;
 			case 4:
-				break;
+				return 0;
 			default:
 				cout << "invalid choice";
 				Sleep(3000);
@@ -113,15 +107,8 @@ int welcome(/*Say hello to the nice people*/){
 //Where the menu switchs are sent
 int tutorial(){
 	string line;
-	//If the file opened correctly then call load methods
-
-	/*Load tutorial map*/
 	system("cls");
-	string welcome = "Welcome to the";
-	for(int i = 0; i < welcome.size(); i++){
-		cout << welcome[i];
-		Sleep(150);
-	}
+	printCbyC("Welcome to the", 150);
 	system("cls");
 
 	cout << "MINI GOLF MANIA";
@@ -148,29 +135,18 @@ int tutorial(){
 	cout << "tutorial";
 	Sleep(800);
 	system("cls");
-	//load("tutorial.txt");
+	load("tutorial.txt");
 
-	ifstream myfile ("tutorial.txt");
-	if (myfile.is_open())
-	{
-		while ( myfile.good() )
-		{
-			getline (myfile,line);
-			cout << line << endl;
-		}
-		myfile.close();
 
-	} else{
-
-		cout << "ERROR: can't open file. Are you sure you entered the right name?" << endl;
-
-	}
+	Sleep(50000);
+	printCbyC("This is the map, it consists of the ball, \"*\",\na hole \"#\", the ground \",\", the out-of-bounds area \"H\"\n and the walls \"|,_,/, \\\"\n",150);
 	Sleep(2000);
-	printCbyC("This is the map, it consists of the ball, \"*\", a hole \"#\", the ground \",\", and the walls \"|,_,/, \\\"",150);
-	Sleep(2000);
-	printCbyC("\nTo complete the level, you must put the ball into the hole in the least amount of strokes.", 150);
-	Sleep(3000);
-	findBall();
+	printCbyC("\nTo complete the level, you must put the ball \ninto the hole in the least amount of strokes.", 150);
+	Sleep(1500);
+	printCbyC("\n\nYour first option is to select where your ball will go...\n\nPress enter when you want to select the distance", 150);
+	Sleep(1500);
+	//findBall();
+
 	system("cls");
 	return 0;
 }
@@ -199,34 +175,44 @@ int highScore(){
 
 	return 0;
 }
+void setCursor(int x, int y){
+	COORD coord = {x,y};
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+}
 void printCbyC(string input, int wait){
 	for(int i = 0; i < input.size(); i++){
 		cout << input[i];
 		Sleep(wait);
 	}
 }
-void setCursorPos(int x, int y){
-	coord = {x,y};
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-}
 /*
-bool load(string input){
-string line;
-ifstream myfile (input);
-if (myfile.is_open())
-{
-while ( myfile.good() )
-{
-getline (myfile,line);
-cout << line << endl;
-}
-myfile.close();
-
-} else{
-
-cout << "ERROR: can't open file." << endl;
-return false;
-}
-return true;
+void setCursorPos(int x, int y){
+coord = {x,y};
+SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 */
+
+bool load(string input){
+	string line;
+	ifstream myfile (input);
+	if (myfile.is_open())
+	{
+		while ( myfile.good() )
+		{
+			getline (myfile,line);
+			cout << line << endl;
+			if(line.find('*')){
+				ballX = line.find('*');	
+				cout << ballX << endl;
+			}else{
+			}
+		}
+		myfile.close();
+
+	} else{
+
+		cout << "ERROR: can't open file." << endl;
+		return false;
+	}
+	return true;
+}
