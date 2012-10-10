@@ -117,7 +117,7 @@ int tutorial(){
 	system("cls");
 
 	cout << "MINI GOLF MANIA";
-	for(int i = 0; i < 4; i++){
+	for(int i = 0; i < 0; i++){
 		system("color 04");
 		Sleep(50);
 		system("color 31");
@@ -143,12 +143,12 @@ int tutorial(){
 	load("tutorial.txt");
 
 
-	Sleep(3000);
-	printCbyC("This is the map, it consists of the ball, \"*\",\na hole \"#\", the ground \",\", the out-of-bounds area \"H\"\n and the walls \"|,_,/, \\\"\n",150);
-	Sleep(2000);
-	printCbyC("\nTo complete the level, you must put the ball \ninto the hole in the least amount of strokes.", 150);
 	Sleep(1500);
-	printCbyC("\n\nYour first option is to select where your ball will go...\n\nPress enter when you want to select the distance", 150);
+	printCbyC("This is the map, it consists of the ball, \"*\",\na hole \"#\", the ground \",\", the out-of-bounds area \"H\"\nand the walls \"|,_,/, \\\"\n",100);
+	Sleep(2000);
+	printCbyC("\nTo complete the level, you must put the ball \ninto the hole in the least amount of strokes.", 100);
+	Sleep(1500);
+	printCbyC("\n\nYour first option is to select where your ball will go...\n\nPress enter when you want to select the distance", 100);
 	Sleep(1500);
 	setCursor(ballX,ballY);
 	setAngle(ballX, ballY);
@@ -157,10 +157,12 @@ int tutorial(){
 	return 0;
 }
 int game(){
-	//for(int i = 0; i <= 13; i++){
-	//drawMap();
-	Sleep (3000);
-	//}
+	system("cls");
+	ballX = 0;
+	ballY = 0;
+
+	load("tutorial.txt");
+	setAngle(ballX, ballY);
 	return 0;
 }
 int highScore(){
@@ -213,37 +215,53 @@ bool load(string input){
 
 	} else{
 
-		cout << "ERROR: can't open file." << endl;
+		cout << "ERROR: can't open file.\nAre you sure you have the file in the right folder?" << endl;
 		return false;
 	}
 	return true;
 }
 void setAngle(int x, int y){
+	int time = 50;
 	do{
 		setCursor(ballX,(ballY+1));
 		cout << "|";
-		Sleep(1000);
+		Sleep(time);
 		setCursor(ballX,ballY+1);
 		cout << ",";
 		setCursor(ballX-1,ballY+1);
 		cout << "/";
-		Sleep(1000);
+		Sleep(time);
 		setCursor(ballX-1,ballY+1);
 		cout << ",";
 		setCursor(ballX-1,ballY);
 		cout << "-";
-		Sleep(1000);
+		Sleep(time);
 		setCursor(ballX-1,ballY);
 		cout << ",";
 		setCursor(ballX-1,ballY-1);
 		cout << "\\";
-		Sleep(1000);
+		Sleep(time);
 		setCursor(ballX-1,ballY-1);
 		cout << ",";
 		setCursor(ballX,(ballY-1));
 		cout << "|";
-		Sleep(1000);
+		Sleep(time);
 		setCursor(ballX,ballY-1);
 		cout << ",";
-	}while(!(cin.ignore((numeric_limits<streamsize>::max)(), '\n')));
+		setCursor(ballX + 1,(ballY-1));
+		cout << "/";
+		Sleep(time);
+		setCursor(ballX + 1,ballY-1);
+		cout << ",";
+		setCursor(ballX + 1,ballY);
+		cout << "-";
+		Sleep(time);
+		setCursor(ballX + 1,ballY);
+		cout << ",";
+		setCursor(ballX + 1,ballY + 1);
+		cout << "\\";
+		Sleep(time);
+		setCursor(ballX + 1,ballY + 1);
+		cout << ",";
+	}while(1==1);
 }
