@@ -221,7 +221,7 @@ bool load(string input){
 	return true;
 }
 void setAngle(int x, int y){
-	int time = 50;
+	int time = 100;
 	do{
 		setCursor(ballX,(ballY+1));
 		cout << "|";
@@ -263,5 +263,5 @@ void setAngle(int x, int y){
 		Sleep(time);
 		setCursor(ballX + 1,ballY + 1);
 		cout << ",";
-	}while(1==1);
+	}while((cin.get()));
 }
