@@ -4,6 +4,7 @@
 #include "validator.h"
 #include <vector>
 #include <string>
+#include <ctime>
 
 //namespace section
 using namespace std;
@@ -16,6 +17,7 @@ bool isItInt();
 bool load(string input);
 int test;
 int game();
+bool enterWait(int timeout);
 void setAngle(int x, int y);
 void printCbyC(string input, int wait);
 void setCursor(int x, int y);
@@ -117,7 +119,7 @@ int tutorial(){
 	system("cls");
 
 	cout << "MINI GOLF MANIA";
-	for(int i = 0; i < 0; i++){
+	for(int i = 0; i < 4; i++){
 		system("color 04");
 		Sleep(50);
 		system("color 31");
@@ -221,47 +223,78 @@ bool load(string input){
 	return true;
 }
 void setAngle(int x, int y){
-	int time = 100;
-	do{
+	for( ; ; ){
 		setCursor(ballX,(ballY+1));
 		cout << "|";
-		Sleep(time);
+		if(enterWait(1)){
+			break;
+		}
 		setCursor(ballX,ballY+1);
 		cout << ",";
 		setCursor(ballX-1,ballY+1);
 		cout << "/";
-		Sleep(time);
+		if(enterWait(1)){
+			break;
+		}
 		setCursor(ballX-1,ballY+1);
 		cout << ",";
 		setCursor(ballX-1,ballY);
 		cout << "-";
-		Sleep(time);
+		if(enterWait(1)){
+			break;
+		}
 		setCursor(ballX-1,ballY);
 		cout << ",";
 		setCursor(ballX-1,ballY-1);
 		cout << "\\";
-		Sleep(time);
+		if(enterWait(1)){
+			break;
+		}
 		setCursor(ballX-1,ballY-1);
 		cout << ",";
 		setCursor(ballX,(ballY-1));
 		cout << "|";
-		Sleep(time);
+		if(enterWait(1)){
+			break;
+		}
 		setCursor(ballX,ballY-1);
 		cout << ",";
 		setCursor(ballX + 1,(ballY-1));
 		cout << "/";
-		Sleep(time);
+		if(enterWait(1)){
+			break;
+		}
 		setCursor(ballX + 1,ballY-1);
 		cout << ",";
 		setCursor(ballX + 1,ballY);
 		cout << "-";
-		Sleep(time);
+		if(enterWait(1)){
+			break;
+		}
 		setCursor(ballX + 1,ballY);
 		cout << ",";
 		setCursor(ballX + 1,ballY + 1);
 		cout << "\\";
-		Sleep(time);
+		if(enterWait(1)){
+			break;
+		}
 		setCursor(ballX + 1,ballY + 1);
 		cout << ",";
-	}while((cin.get()));
+	}
+}
+
+bool enterWait(int timeout){
+	time_t start = time(0);
+	while(true){
+		if(difftime(time(0),start) >= timeout){
+			return false;
+		}
+		if(kbhit()){
+			char enterPress = (int)getche();
+			if(enterPress == 13){
+				break;
+			}
+		}
+	}
+	return true;
 }
