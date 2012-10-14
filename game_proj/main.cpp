@@ -23,7 +23,7 @@ void printCbyC(string input, int wait);
 void setCursor(int x, int y);
 int findBall();
 void setCursorPos(int x, int y);
-int matriarray[2][4] = {{1,0,-1,0},{'|','/','-','\\'}};//this is causing an error Im not sure why future me, dont worry tho, you have til next friday ;3
+int matriarray[3][8] = {{0,1,1,1,0,-1,-1,-1},{-1,-1,0,1,1,1,0,-1},{'|','/','-','\\','|','/','-','\\'}};
 int ballX = 0;
 int ballY = 0;
 int angleX = 0;
@@ -44,7 +44,6 @@ int main(){
 	main_menu();
 	return 0;
 }
-
 
 int main_menu(){
 	int choice = 0;
@@ -113,7 +112,7 @@ int welcome(/*Say hello to the nice people*/){
 	return 0;
 }
 //Where the menu switchs are sent
-int tutorial(){
+int tutorial(/*Introduce the main concepts of the game*/){
 	string line;
 	system("cls");
 	printCbyC("Welcome to the", 150);
@@ -196,7 +195,6 @@ void printCbyC(string input, int wait){
 		Sleep(wait);
 	}
 }
-
 bool load(string input){
 	ballY = 0;
 	ballX = 0;
@@ -224,16 +222,21 @@ bool load(string input){
 	return true;
 }
 void setAngle(int x, int y){
+	bool yes = false;
 	while(true){
 		for(i = 0;i < 8 ;i ++ ){
-			setCursor(ballX+matriArray[0][i],ballY+matriArray[0][i]);
-			theCache = copy(ballX+matriArray[0][i],ballX+matriArray[0][i]+1,theCache);
-			cout << matriArray[1][i];
+			setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
+			//theCache = copy(ballX+matriarray[0][i],ballY+matriarray[1][i],theCache);
+			cout << (char)(matriarray[2][i]);
 			if(enterWait(1)){
+				yes = true;
 				break;
 			}
-			setCursor(ballX+matriArray[0][i],ballY+matriArray[0][i]);
+			setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
 			cout << theCache;;
+		}
+		if(yes){
+			break;
 		}
 	}
 }
@@ -247,7 +250,7 @@ bool enterWait(int timeout){
 		if(kbhit()){
 			char enterPress = (int)getche();
 			if(enterPress == 13){
-				break;
+				return true;
 			}
 		}
 	}
