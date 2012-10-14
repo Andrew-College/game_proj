@@ -23,6 +23,7 @@ void printCbyC(string input, int wait);
 void setCursor(int x, int y);
 int findBall();
 void setCursorPos(int x, int y);
+int matriarray[2][4] = {{1,0,-1,0},{'|','/','-','\\'}};//this is causing an error Im not sure why future me, dont worry tho, you have til next friday ;3
 int ballX = 0;
 int ballY = 0;
 int angleX = 0;
@@ -30,7 +31,7 @@ int angleY = 0;
 string line = "";
 int i = 0;
 int j = 0;
-char cache = 'H';
+char theCache = 'H';
 
 using namespace std;
 ///////////////////////////////////////////
@@ -223,63 +224,17 @@ bool load(string input){
 	return true;
 }
 void setAngle(int x, int y){
-	for( ; ; ){
-		setCursor(ballX,(ballY+1));
-		cout << "|";
-		if(enterWait(1)){
-			break;
+	while(true){
+		for(i = 0;i < 8 ;i ++ ){
+			setCursor(ballX+matriArray[0][i],ballY+matriArray[0][i]);
+			theCache = copy(ballX+matriArray[0][i],ballX+matriArray[0][i]+1,theCache);
+			cout << matriArray[1][i];
+			if(enterWait(1)){
+				break;
+			}
+			setCursor(ballX+matriArray[0][i],ballY+matriArray[0][i]);
+			cout << theCache;;
 		}
-		setCursor(ballX,ballY+1);
-		cout << ",";
-		setCursor(ballX-1,ballY+1);
-		cout << "/";
-		if(enterWait(1)){
-			break;
-		}
-		setCursor(ballX-1,ballY+1);
-		cout << ",";
-		setCursor(ballX-1,ballY);
-		cout << "-";
-		if(enterWait(1)){
-			break;
-		}
-		setCursor(ballX-1,ballY);
-		cout << ",";
-		setCursor(ballX-1,ballY-1);
-		cout << "\\";
-		if(enterWait(1)){
-			break;
-		}
-		setCursor(ballX-1,ballY-1);
-		cout << ",";
-		setCursor(ballX,(ballY-1));
-		cout << "|";
-		if(enterWait(1)){
-			break;
-		}
-		setCursor(ballX,ballY-1);
-		cout << ",";
-		setCursor(ballX + 1,(ballY-1));
-		cout << "/";
-		if(enterWait(1)){
-			break;
-		}
-		setCursor(ballX + 1,ballY-1);
-		cout << ",";
-		setCursor(ballX + 1,ballY);
-		cout << "-";
-		if(enterWait(1)){
-			break;
-		}
-		setCursor(ballX + 1,ballY);
-		cout << ",";
-		setCursor(ballX + 1,ballY + 1);
-		cout << "\\";
-		if(enterWait(1)){
-			break;
-		}
-		setCursor(ballX + 1,ballY + 1);
-		cout << ",";
 	}
 }
 
