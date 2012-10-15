@@ -1,6 +1,5 @@
 //local includes
 #include "includers.h"
-//#include "worldObjects.h"
 #include "validator.h"
 #include <vector>
 #include <string>
@@ -19,11 +18,14 @@ int test;
 int game();
 bool enterWait(int timeout);
 void setAngle(int x, int y);
+void setPower();
+void shoot();
 void printCbyC(string input, int wait);
 void setCursor(int x, int y);
 int findBall();
 void setCursorPos(int x, int y);
 int matriarray[3][8] = {{0,1,1,1,0,-1,-1,-1},{-1,-1,0,1,1,1,0,-1},{'|','/','-','\\','|','/','-','\\'}};
+int count = 0;
 int ballX = 0;
 int ballY = 0;
 int angleX = 0;
@@ -31,7 +33,10 @@ int angleY = 0;
 string line = "";
 int i = 0;
 int j = 0;
-char theCache = 'H';
+string theCache = "H";
+string theMap[100];
+
+
 
 using namespace std;
 ///////////////////////////////////////////
@@ -165,6 +170,8 @@ int game(){
 
 	load("tutorial.txt");
 	setAngle(ballX, ballY);
+	setPower();
+	Sleep(3000);
 	return 0;
 }
 int highScore(){
@@ -205,12 +212,14 @@ bool load(string input){
 		while ( myfile.good() )
 		{
 			getline (myfile,line);
+			theMap[count] = line;
 			cout << line << endl;
 			if(line.find('*') != -1){
 				ballX = line.find('*');	
 			}else if(line.find('*') == -1 && ballX == 0){
 				ballY++;
 			}
+			++count;
 		}
 		myfile.close();
 
@@ -226,21 +235,44 @@ void setAngle(int x, int y){
 	while(true){
 		for(i = 0;i < 8 ;i ++ ){
 			setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
-			//theCache = copy(ballX+matriarray[0][i],ballY+matriarray[1][i],theCache);
+			theCache = (string)(theMap[ballY+matriarray[1][i]].substr(ballX+matriarray[0][i],1));
 			cout << (char)(matriarray[2][i]);
 			if(enterWait(1)){
 				yes = true;
 				break;
 			}
 			setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
-			cout << theCache;;
+			cout << theCache;
 		}
 		if(yes){
 			break;
 		}
 	}
 }
-
+void setPower(){
+	j = 0;
+	while(true){
+		j++;
+		setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
+		cout << j;
+		if(enterWait(1)){
+			shoot();
+			break;
+		}if(j == 5){
+			j = 0;
+		}
+	}
+}
+void shoot(){
+	while(j != 0){
+		setCursor(ballX,ballY);
+		cout << ',';
+		setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
+		cout << '*';
+		j = j - 1;
+		Sleep(1000);
+	}
+}
 bool enterWait(int timeout){
 	time_t start = time(0);
 	while(true){
