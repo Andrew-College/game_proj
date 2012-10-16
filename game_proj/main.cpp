@@ -5,6 +5,8 @@
 #include <string>
 #include <ctime>
 
+bool didntLose = false;
+
 //namespace section
 using namespace std;
 //declaring variables
@@ -17,6 +19,7 @@ bool load(string input);
 int test;
 int game();
 bool enterWait(int timeout);
+void win();
 void setAngle(int x, int y);
 void setPower();
 void shoot();
@@ -159,19 +162,29 @@ int tutorial(/*Introduce the main concepts of the game*/){
 	Sleep(1500);
 	setCursor(ballX,ballY);
 	setAngle(ballX, ballY);
+	setCursor(0,23);
+	printCbyC("Now you have the angle set, you are going to set the power, after that, the ball will move. Keep shooting until you get to the hole!",100);
 	Sleep(3000);
-	system("cls");
+	setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
+	setPower();
+	while(!didntLose){
+		setAngle(ballX, ballY);
+		setPower();
+	}
+
 	return 0;
 }
 int game(){
+
 	system("cls");
 	ballX = 0;
 	ballY = 0;
 
 	load("tutorial.txt");
-	setAngle(ballX, ballY);
-	setPower();
-	Sleep(3000);
+	while(!didntLose){
+		setAngle(ballX, ballY);
+		setPower();
+	}
 	return 0;
 }
 int highScore(){
@@ -232,7 +245,7 @@ bool load(string input){
 }
 void setAngle(int x, int y){
 	bool yes = false;
-	while(true){
+	while(!didntLose){
 		for(i = 0;i < 8 ;i ++ ){
 			setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
 			theCache = (string)(theMap[ballY+matriarray[1][i]].substr(ballX+matriarray[0][i],1));
@@ -264,13 +277,19 @@ void setPower(){
 	}
 }
 void shoot(){
-	while(j != 0){
+	while(j != 0 && !didntLose){
 		setCursor(ballX,ballY);
+		theCache = (string)(theMap[ballY+matriarray[1][i]].substr(ballX+matriarray[0][i],1));
 		cout << ',';
 		setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
+		ballX = ballX+matriarray[0][i];
+		ballY = ballY+matriarray[1][i];
 		cout << '*';
 		j = j - 1;
 		Sleep(1000);
+		if(theCache == "#"){
+			win();
+		}
 	}
 }
 bool enterWait(int timeout){
@@ -287,4 +306,28 @@ bool enterWait(int timeout){
 		}
 	}
 	return true;
+}
+void win(){
+	didntLose = true;
+	cout << "YOU WIN!";
+	for(int k = 0; k < 4; k++){
+		system("color 04");
+		Sleep(50);
+		system("color 31");
+		Sleep(50);
+		system("color F0");
+		Sleep(50);
+		system("color 79");
+		Sleep(50);
+		system("color 04");
+		Sleep(50);
+		system("color 31");
+		Sleep(50);
+		system("color F0");
+		Sleep(50);
+		system("color 79");
+		Sleep(50);
+	}
+	system("Color 0F");
+	system("cls");
 }
