@@ -1,0 +1,4 @@
+when the player is selecting power/angle, they can overwrite onscreen characters with keyboard input. This doesnot overwrite the arrays value at that point, so it is re-written.
+when selecting power/ angle near the initial position of the ball, it appears erroneously, shooting the actual ball over the erroneous one fixes this.
+Diagonal walls not implemented yet, too many variable physics problems with collisions depending on the side hit.
+Scoring system not implemented yet.

@@ -6,7 +6,7 @@ HHHHHH|,,,,,,,|,,,,,,,,#,,,|HHHHHH
 HHHHHH|,,,,,,,,,,,,,,,,,,,,|HHHHHH
 HHHHHH|,,,,,,,,,,,,,,,,,,,,|HHHHHH
 HHHHHH|,,,,,,,,,,,,,,,,,,,,|HHHHHH
-HHHHHH|,,,,,,\,,/,,,,,,,,,,|HHHHHH
+HHHHHH|,,,,,,,,,,,,,,,,,,,,|HHHHHH
 HHHHHH|_______,,___________|HHHHHH
 HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH

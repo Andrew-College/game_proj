@@ -23,11 +23,12 @@ void win();
 void setAngle(int x, int y);
 void setPower();
 void shoot();
+void physics();
 void printCbyC(string input, int wait);
 void setCursor(int x, int y);
 int findBall();
 void setCursorPos(int x, int y);
-int matriarray[3][8] = {{0,1,1,1,0,-1,-1,-1},{-1,-1,0,1,1,1,0,-1},{'|','/','-','\\','|','/','-','\\'}};
+int matriarray[3][8] = {{0,1,1,1,0,-1,-1,-1},{-1,-1,0,1,1,1,0,-1},{'|'/*12 o clock*/,'/','-',/*lower*/'\\','|'/*6 o clock*/,'/','-',/*upper*/'\\'}};
 int count = 0;
 int ballX = 0;
 int ballY = 0;
@@ -38,8 +39,6 @@ int i = 0;
 int j = 0;
 string theCache = "H";
 string theMap[100];
-
-
 
 using namespace std;
 ///////////////////////////////////////////
@@ -154,11 +153,11 @@ int tutorial(/*Introduce the main concepts of the game*/){
 
 
 	Sleep(1500);
-	printCbyC("This is the map, it consists of the ball, \"*\",\na hole \"#\", the ground \",\", the out-of-bounds area \"H\"\nand the walls \"|,_,/, \\\"\n",100);
+	printCbyC("This is the map, it consists of the ball, \"*\",\na hole \"#\", the ground \",\", the out-of-bounds area \"H\"\nand the walls \"|,_\"\n",100);
 	Sleep(2000);
 	printCbyC("\nTo complete the level, you must put the ball \ninto the hole in the least amount of strokes.", 100);
 	Sleep(1500);
-	printCbyC("\n\nYour first option is to select where your ball will go...\n\nPress enter when you want to select the distance", 100);
+	printCbyC("\n\nYour first option is to select where your ball will go...\n\nPress enter when you want to select the angle", 100);
 	Sleep(1500);
 	setCursor(ballX,ballY);
 	setAngle(ballX, ballY);
@@ -181,6 +180,7 @@ int game(){
 	ballY = 0;
 
 	load("tutorial.txt");
+	Sleep(1000);
 	while(!didntLose){
 		setAngle(ballX, ballY);
 		setPower();
@@ -269,6 +269,8 @@ void setPower(){
 		setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
 		cout << j;
 		if(enterWait(1)){
+			setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
+			cout << theCache;
 			shoot();
 			break;
 		}if(j == 5){
@@ -281,14 +283,51 @@ void shoot(){
 		setCursor(ballX,ballY);
 		theCache = (string)(theMap[ballY+matriarray[1][i]].substr(ballX+matriarray[0][i],1));
 		cout << ',';
-		setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
-		ballX = ballX+matriarray[0][i];
-		ballY = ballY+matriarray[1][i];
-		cout << '*';
-		j = j - 1;
-		Sleep(1000);
+		physics();
+		if(theCache == "H"){
+			j = 0;
+			cout << '*';
+		}else{
+			setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
+			ballX = ballX+matriarray[0][i];
+			ballY = ballY+matriarray[1][i];
+			cout << '*';
+			j = j - 1;
+			Sleep(1000);
+		}
 		if(theCache == "#"){
 			win();
+		}
+	}
+}
+void physics(){
+	/*
+	do ifs for the different characters, then for the walls they will logically collide with, 
+	since the ball is governed by a matrix all thats needed to be changed is one value
+	*/
+	if((char)(matriarray[2][i]) == '-'){
+		if(theCache == "|" && i == 2 ){
+			i = 6;
+		}else if(theCache == "|" && i == 6 ){
+			i = 2;
+		}
+	}else if((char)(matriarray[2][i]) == '\\'){
+		if((theCache == "_" && i == 3) || (theCache == "|" && i == 7) ){
+			i = 1;
+		}else if((theCache == "_" && i == 7) || (theCache == "|" && i == 3)){
+			i = 5;
+		}
+	}else if((char)(matriarray[2][i]) == '|'){
+		if((theCache == "_" && i == 0)){
+			i = 4;
+		}else if((theCache == "_" && i == 4)){
+			i = 0;
+		}
+	}else if((char)(matriarray[2][i]) == '/'){
+		if((theCache == "_" && i == 1) || (theCache == "|" && i == 5)){
+			i = 3;
+		}else if((theCache == "_" && i == 5) || (theCache == "|" && i == 1)){
+			i = 7;
 		}
 	}
 }
@@ -302,6 +341,7 @@ bool enterWait(int timeout){
 			char enterPress = (int)getche();
 			if(enterPress == 13){
 				return true;
+			}else{
 			}
 		}
 	}
