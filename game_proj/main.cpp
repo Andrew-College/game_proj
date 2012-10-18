@@ -1,7 +1,6 @@
 //local includes
 #include "includers.h"
 #include "validator.h"
-#include <vector>
 #include <string>
 #include <ctime>
 
@@ -32,8 +31,6 @@ int matriarray[3][8] = {{0,1,1,1,0,-1,-1,-1},{-1,-1,0,1,1,1,0,-1},{'|'/*12 o clo
 int count = 0;
 int ballX = 0;
 int ballY = 0;
-int angleX = 0;
-int angleY = 0;
 string line = "";
 int i = 0;
 int j = 0;
@@ -180,6 +177,7 @@ int game(){
 	ballY = 0;
 
 	load("tutorial.txt");
+	//score scoreCard;
 	Sleep(1000);
 	while(!didntLose){
 		setAngle(ballX, ballY);
@@ -210,7 +208,7 @@ void setCursor(int x, int y){
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
 }
 void printCbyC(string input, int wait){
-	for(int i = 0; i < input.size(); i++){
+	for(unsigned i = 0; i < input.size(); i++){
 		cout << input[i];
 		Sleep(wait);
 	}
