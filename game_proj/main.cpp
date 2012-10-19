@@ -3,8 +3,10 @@
 #include "validator.h"
 #include <string>
 #include <ctime>
+#include <vector>
 
 bool didntLose = false;
+int score = 0;
 
 //namespace section
 using namespace std;
@@ -18,7 +20,7 @@ bool load(string input);
 int test;
 int game();
 bool enterWait(int timeout);
-void win();
+bool win();
 void setAngle(int x, int y);
 void setPower();
 void shoot();
@@ -27,15 +29,18 @@ void printCbyC(string input, int wait);
 void setCursor(int x, int y);
 int findBall();
 void setCursorPos(int x, int y);
-int matriarray[3][8] = {{0,1,1,1,0,-1,-1,-1},{-1,-1,0,1,1,1,0,-1},{'|'/*12 o clock*/,'/','-',/*lower*/'\\','|'/*6 o clock*/,'/','-',/*upper*/'\\'}};
+int matriarray[3][8] = {{/*X coordinates*/0,1,1,1,0,-1,-1,-1},{/*Y coordinates*/-1,-1,0,1,1,1,0,-1},{'|'/*12 o clock*/,'/','-',/*lower*/'\\','|'/*6 o clock*/,'/','-',/*upper*/'\\'}};
 int count = 0;
 int ballX = 0;
 int ballY = 0;
-string line = "";
+string currentLine = "";
 int i = 0;
 int j = 0;
 string theCache = "H";
 string theMap[100];
+vector<string> aMap;
+vector<int> theScore;
+vector<int>::const_iterator iter;
 
 using namespace std;
 ///////////////////////////////////////////
@@ -57,6 +62,7 @@ int main_menu(){
 	do{
 		system("cls");
 		choice = 0;
+		score = 0;
 		cout << "MINI GOLF MANIA" << endl << endl;
 		cout << "Main Menu" << endl << "1. How to play." << endl << "2. Play Now!" << endl <<"3. High Scores." << endl <<"4. Quit"<<endl<<endl;
 		cin >> choice;
@@ -117,11 +123,12 @@ int welcome(/*Say hello to the nice people*/){
 }
 //Where the menu switchs are sent
 int tutorial(/*Introduce the main concepts of the game*/){
+
 	string line;
 	system("cls");
 	printCbyC("Welcome to the", 150);
 	system("cls");
-
+	didntLose = false;
 	cout << "MINI GOLF MANIA";
 	for(int i = 0; i < 4; i++){
 		system("color 04");
@@ -163,39 +170,60 @@ int tutorial(/*Introduce the main concepts of the game*/){
 	Sleep(3000);
 	setCursor(ballX+matriarray[0][i],ballY+matriarray[1][i]);
 	setPower();
+	score++;
 	while(!didntLose){
+		score++;
 		setAngle(ballX, ballY);
 		setPower();
 	}
-
+	theScore.push_back(score);
 	return 0;
 }
 int game(){
 
+	didntLose = false;
 	system("cls");
 	ballX = 0;
 	ballY = 0;
 
 	load("tutorial.txt");
-	//score scoreCard;
 	Sleep(1000);
 	while(!didntLose){
+		setCursor(1,0);
+		printCbyC("S", 0);
+		setCursor(2,0);
+		printCbyC("c", 0);
+		setCursor(3,0);
+		printCbyC("o", 0);
+		setCursor(4,0);
+		printCbyC("r", 0);
+		setCursor(5,0);
+		printCbyC("e", 0);
+		setCursor(6,0);
+		printCbyC(":", 0);
+		setCursor(7,0);
+		printCbyC(" ", 0);
+		setCursor(8,0);
+		cout << score;
 		setAngle(ballX, ballY);
 		setPower();
+		if(!didntLose){
+			score++;
+		}
 	}
+	theScore.push_back(score);
 	return 0;
 }
 int highScore(){
-	/*
-	if(score.size()!=0){
-	for(int i = 0; i < score.size(); i++){
-	cout << /*placeholder for names << score.at(i)<< flush <<endl;
-	Sleep(300);
-	}
+
+	if(theScore.size()!=0){
+		for(iter = theScore.begin(); iter != theScore.end(); ++iter){
+			cout << *iter <<endl;
+			Sleep(300);
+		}
 	}else{
-	*/
-	cout << "no scores here yet!" << endl;
-	//}
+		cout << "no scores here yet!" << endl;
+	}
 	Sleep(4000);
 	cout << "returning to main menu"<< endl;
 	Sleep(2000);
@@ -216,18 +244,19 @@ void printCbyC(string input, int wait){
 bool load(string input){
 	ballY = 0;
 	ballX = 0;
-	line = "";
+	currentLine = "";
 	ifstream myfile (input);
 	if (myfile.is_open())
 	{
 		while ( myfile.good() )
 		{
-			getline (myfile,line);
-			theMap[count] = line;
-			cout << line << endl;
-			if(line.find('*') != -1){
-				ballX = line.find('*');	
-			}else if(line.find('*') == -1 && ballX == 0){
+			getline (myfile,currentLine);
+			theMap[count] = currentLine;
+			//aMap.push_back(line);
+			cout << currentLine << endl;
+			if(currentLine.find('*') != -1){
+				ballX = currentLine.find('*');	
+			}else if(currentLine.find('*') == -1 && ballX == 0){
 				ballY++;
 			}
 			++count;
@@ -280,9 +309,14 @@ void shoot(){
 	while(j != 0 && !didntLose){
 		setCursor(ballX,ballY);
 		theCache = (string)(theMap[ballY+matriarray[1][i]].substr(ballX+matriarray[0][i],1));
+		//setCursor(0,13); //This printed out what was in the cache, handy for collision bugs
+		//cout << theCache;
+		setCursor(ballX,ballY);
 		cout << ',';
 		physics();
 		if(theCache == "H"){
+			score++;
+			theCache = (string)(theMap[ballY+matriarray[1][i]].substr(ballX+matriarray[0][i],1));
 			j = 0;
 			cout << '*';
 		}else{
@@ -291,9 +325,7 @@ void shoot(){
 			ballY = ballY+matriarray[1][i];
 			cout << '*';
 			j = j - 1;
-			Sleep(1000);
-		}
-		if(theCache == "#"){
+			Sleep(500);
 			win();
 		}
 	}
@@ -328,6 +360,7 @@ void physics(){
 			i = 7;
 		}
 	}
+	theCache = (string)(theMap[ballY+matriarray[1][i]].substr(ballX+matriarray[0][i],1));
 }
 bool enterWait(int timeout){
 	time_t start = time(0);
@@ -345,27 +378,31 @@ bool enterWait(int timeout){
 	}
 	return true;
 }
-void win(){
-	didntLose = true;
-	cout << "YOU WIN!";
-	for(int k = 0; k < 4; k++){
-		system("color 04");
-		Sleep(50);
-		system("color 31");
-		Sleep(50);
-		system("color F0");
-		Sleep(50);
-		system("color 79");
-		Sleep(50);
-		system("color 04");
-		Sleep(50);
-		system("color 31");
-		Sleep(50);
-		system("color F0");
-		Sleep(50);
-		system("color 79");
-		Sleep(50);
+bool win(){
+	if(theCache == "#"){
+		didntLose = true;
+		cout << "YOU WIN!";
+		for(int k = 0; k < 4; k++){
+			system("color 04");
+			Sleep(50);
+			system("color 31");
+			Sleep(50);
+			system("color F0");
+			Sleep(50);
+			system("color 79");
+			Sleep(50);
+			system("color 04");
+			Sleep(50);
+			system("color 31");
+			Sleep(50);
+			system("color F0");
+			Sleep(50);
+			system("color 79");
+			Sleep(50);
+		}
+		system("Color 0F");
+		system("cls");
+		return true;
 	}
-	system("Color 0F");
-	system("cls");
+	return false;
 }

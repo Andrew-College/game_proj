@@ -1,19 +1,19 @@
-﻿Build started 17/10/2012 19:05:43.
+﻿Build started 19/10/2012 16:20:08.
      1>Project "C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\game_proj\game_proj.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Release\game_proj.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
          c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>main.cpp(167): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
-                 main.cpp(129) : definition of 'i' ignored
-                 main.cpp(38) : definition of 'i' used
-     1>main.cpp(167): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
-                 main.cpp(129) : definition of 'i' ignored
-                 main.cpp(38) : definition of 'i' used
-     1>main.cpp(341): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
+     1>main.cpp(171): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 main.cpp(133) : definition of 'i' ignored
+                 main.cpp(37) : definition of 'i' used
+     1>main.cpp(171): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 main.cpp(133) : definition of 'i' ignored
+                 main.cpp(37) : definition of 'i' used
+     1>main.cpp(372): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\conio.h(130) : see declaration of 'kbhit'
-     1>main.cpp(342): warning C4996: 'getche': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getche. See online help for details.
+     1>main.cpp(373): warning C4996: 'getche': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getche. See online help for details.
                  c:\Program Files\Microsoft Visual Studio 10.0\VC\include\conio.h(129) : see declaration of 'getche'
        Link:
          c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\Release\game_proj.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\game_proj.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\Release\game_proj.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\Release\game_proj.lib" /MACHINE:X86 Release\main.obj
@@ -29,4 +29,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.32
+Time Elapsed 00:00:04.93

@@ -26,5 +26,8 @@
     <ClInclude Include="includers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="scoreCard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
