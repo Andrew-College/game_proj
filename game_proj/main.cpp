@@ -1,13 +1,18 @@
+/*
+There are a number of things are commented out, this is because they are WIP when moodle came back online and so were left
+*/
+
 //local includes
 #include "includers.h"
 #include "validator.h"
-#include "scoreCard.h"
+//#include "scoreCard.h"
 #include <string>
 #include <ctime>
 #include <vector>
 
 bool didntLose = false;
 int score = 0;
+string name;
 
 //namespace section
 using namespace std;
@@ -39,10 +44,10 @@ int i = 0;
 int j = 0;
 string theCache = "H";
 string theMap[100];
-vector<string> aMap;
-vector<ScoreCard> theScore;
-vector<ScoreCard>::const_iterator iter;
-ifstream inFile("highscores.txt");
+//vector<string> aMap;
+vector</*ScoreCard commented out because of bugs*/int> theScore;
+vector</*ScoreCard*/int>::const_iterator iter;
+//ifstream inFile("highscores.txt");
 
 using namespace std;
 ///////////////////////////////////////////
@@ -178,6 +183,9 @@ int tutorial(/*Introduce the main concepts of the game*/){
 		setAngle(ballX, ballY);
 		setPower();
 	}
+	//cout << "enter your name here;";
+	//cin >> name;
+	//theScore.push_back(new ScoreCard(name,"tutorial.txt",score));
 	theScore.push_back(score);
 	return 0;
 }
@@ -187,40 +195,41 @@ int game(){
 	system("cls");
 	ballX = 0;
 	ballY = 0;
+	score = 0;
+	if(load("tutorial.txt")){
 
-	load("tutorial.txt");
-	Sleep(1000);
-	while(!didntLose){
-		setCursor(1,0);
-		printCbyC("S", 0);
-		setCursor(2,0);
-		printCbyC("c", 0);
-		setCursor(3,0);
-		printCbyC("o", 0);
-		setCursor(4,0);
-		printCbyC("r", 0);
-		setCursor(5,0);
-		printCbyC("e", 0);
-		setCursor(6,0);
-		printCbyC(":", 0);
-		setCursor(7,0);
-		printCbyC(" ", 0);
-		setCursor(8,0);
-		cout << score;
-		setAngle(ballX, ballY);
-		setPower();
-		if(!didntLose){
-			score++;
+		Sleep(1000);
+		while(!didntLose){
+			setCursor(1,0);
+			printCbyC("S", 0);
+			setCursor(2,0);
+			printCbyC("c", 0);
+			setCursor(3,0);
+			printCbyC("o", 0);
+			setCursor(4,0);
+			printCbyC("r", 0);
+			setCursor(5,0);
+			printCbyC("e", 0);
+			setCursor(6,0);
+			printCbyC(":", 0);
+			setCursor(7,0);
+			printCbyC(" ", 0);
+			setCursor(8,0);
+			cout << score;
+			setAngle(ballX, ballY);
+			setPower();
+			if(!didntLose){
+				score++;
+			}
 		}
+		//cout << "enter your name here;";
+		//cin >> name;
+		//theScore.push_back(new ScoreCard(name,"tutorial.txt",score));
+		theScore.push_back(score);
 	}
-	theScore.push_back(score);
 	return 0;
 }
 int highScore(){
-
-	for(iter = theScore.begin(); iter != theScore.end(); ++iter){
-		theScore.push_back(iter*.load(inFile));
-	}
 
 	if(theScore.size()!=0){
 		for(iter = theScore.begin(); iter != theScore.end(); ++iter){
@@ -258,7 +267,6 @@ bool load(string input){
 		{
 			getline (myfile,currentLine);
 			theMap[count] = currentLine;
-			//aMap.push_back(line);
 			cout << currentLine << endl;
 			if(currentLine.find('*') != -1){
 				ballX = currentLine.find('*');	
@@ -369,7 +377,7 @@ void physics(){
 	theCache = (string)(theMap[ballY+matriarray[1][i]].substr(ballX+matriarray[0][i],1));
 }
 bool enterWait(int timeout){
-	time_t start = time(0);
+ 	time_t start = time(0);
 	while(true){
 		if(difftime(time(0),start) >= timeout){
 			return false;
