@@ -1,32 +1,240 @@
-﻿Build started 19/10/2012 16:20:08.
+﻿Build started 20/10/2012 01:36:46.
      1>Project "C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\game_proj\game_proj.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Release\game_proj.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp scoreCard.cpp
          main.cpp
-     1>main.cpp(171): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
-                 main.cpp(133) : definition of 'i' ignored
-                 main.cpp(37) : definition of 'i' used
-     1>main.cpp(171): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
-                 main.cpp(133) : definition of 'i' ignored
-                 main.cpp(37) : definition of 'i' used
-     1>main.cpp(372): warning C4996: 'kbhit': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _kbhit. See online help for details.
-                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\conio.h(130) : see declaration of 'kbhit'
-     1>main.cpp(373): warning C4996: 'getche': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _getche. See online help for details.
-                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\conio.h(129) : see declaration of 'getche'
-       Link:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\Release\game_proj.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\game_proj.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\Release\game_proj.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\Release\game_proj.lib" /MACHINE:X86 Release\main.obj
-         Generating code
-         Finished generating code
-         game_proj.vcxproj -> C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\Release\game_proj.exe
-       Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\Release\game_proj.exe;#1" /manifest Release\game_proj.exe.intermediate.manifest
-       FinalizeBuildStatus:
-         Deleting file "Release\game_proj.unsuccessfulbuild".
-         Touching "Release\game_proj.lastbuildstate".
-     1>Done Building Project "C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\game_proj\game_proj.vcxproj" (build target(s)).
+     1>c:\users\andmin\documents\visual studio 2010\projects\game_proj\game_proj\scoreCard.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\andmin\documents\visual studio 2010\projects\game_proj\game_proj\scoreCard.h(8): warning C4183: 'scoreCard': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\andmin\documents\visual studio 2010\projects\game_proj\game_proj\scoreCard.h(9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\andmin\documents\visual studio 2010\projects\game_proj\game_proj\scoreCard.h(9): warning C4183: 'scoreCard': missing return type; assumed to be a member function returning 'int'
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\time.h(35): error C2143: syntax error : missing ';' before 'string'
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\time.h(35): error C2059: syntax error : 'string'
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\time.h(35): error C2143: syntax error : missing ';' before '{'
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\time.h(35): error C2447: '{' : missing function header (old-style formal list?)
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(18): error C2039: 'clock_t' : is not a member of '`global namespace''
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(18): error C2873: 'clock_t' : symbol cannot be used in a using-declaration
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(20): error C2039: 'asctime' : is not a member of '`global namespace''
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(20): error C2873: 'asctime' : symbol cannot be used in a using-declaration
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(20): error C2039: 'clock' : is not a member of '`global namespace''
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(20): error C2873: 'clock' : symbol cannot be used in a using-declaration
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(20): error C2039: 'ctime' : is not a member of '`global namespace''
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(20): error C2873: 'ctime' : symbol cannot be used in a using-declaration
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(21): error C2039: 'difftime' : is not a member of '`global namespace''
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(21): error C2873: 'difftime' : symbol cannot be used in a using-declaration
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(21): error C2039: 'gmtime' : is not a member of '`global namespace''
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(21): error C2873: 'gmtime' : symbol cannot be used in a using-declaration
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(21): error C2039: 'localtime' : is not a member of '`global namespace''
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(21): error C2873: 'localtime' : symbol cannot be used in a using-declaration
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(22): error C2039: 'mktime' : is not a member of '`global namespace''
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(22): error C2873: 'mktime' : symbol cannot be used in a using-declaration
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(22): error C2039: 'strftime' : is not a member of '`global namespace''
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(22): error C2873: 'strftime' : symbol cannot be used in a using-declaration
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(22): error C2039: 'time' : is not a member of '`global namespace''
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ctime(22): error C2873: 'time' : symbol cannot be used in a using-declaration
+     1>main.cpp(173): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 main.cpp(135) : definition of 'i' ignored
+                 main.cpp(38) : definition of 'i' used
+     1>main.cpp(173): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 main.cpp(135) : definition of 'i' ignored
+                 main.cpp(38) : definition of 'i' used
+     1>main.cpp(181): error C2664: 'void std::vector<_Ty>::push_back(_Ty &&)' : cannot convert parameter 1 from 'int' to 'ScoreCard &&'
+                 with
+                 [
+                     _Ty=ScoreCard
+                 ]
+                 Reason: cannot convert from 'int' to 'ScoreCard'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>main.cpp(216): error C2664: 'void std::vector<_Ty>::push_back(_Ty &&)' : cannot convert parameter 1 from 'int' to 'ScoreCard &&'
+                 with
+                 [
+                     _Ty=ScoreCard
+                 ]
+                 Reason: cannot convert from 'int' to 'ScoreCard'
+                 No constructor could take the source type, or constructor overload resolution was ambiguous
+     1>main.cpp(222): error C2059: syntax error : '.'
+     1>main.cpp(227): error C2679: binary '<<' : no operator found which takes a right-hand operand of type 'const ScoreCard' (or there is no acceptable conversion)
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(679): could be 'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(726): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(764): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(811): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(937): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const signed char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(944): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,signed char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(951): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const unsigned char *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(958): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,unsigned char)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(968): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>,ScoreCard>(std::basic_ostream<_Elem,_Traits> &&,_Ty)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>,
+                     _Ty=ScoreCard
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(1085): or       'std::basic_ostream<_Elem,_Traits> &std::operator <<<char,std::char_traits<char>>(std::basic_ostream<_Elem,_Traits> &,const std::error_code &)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(186): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::basic_ostream<_Elem,_Traits> &(__cdecl *)(std::basic_ostream<_Elem,_Traits> &))'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(192): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::basic_ios<_Elem,_Traits> &(__cdecl *)(std::basic_ios<_Elem,_Traits> &))'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(199): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::ios_base &(__cdecl *)(std::ios_base &))'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(206): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::_Bool)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(226): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(short)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(260): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned short)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(280): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(int)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(305): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned int)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(325): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(long)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(345): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned long)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(366): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(__int64)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(386): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(unsigned __int64)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(407): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(float)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(427): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(double)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(447): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(long double)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(467): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(const void *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 c:\Program Files\Microsoft Visual Studio 10.0\VC\include\ostream(487): or       'std::basic_ostream<_Elem,_Traits> &std::basic_ostream<_Elem,_Traits>::operator <<(std::basic_streambuf<_Elem,_Traits> *)'
+                 with
+                 [
+                     _Elem=char,
+                     _Traits=std::char_traits<char>
+                 ]
+                 while trying to match the argument list '(std::ostream, const ScoreCard)'
+     1>main.cpp(372): error C3861: 'time': identifier not found
+     1>main.cpp(374): error C3861: 'difftime': identifier not found
+     1>main.cpp(374): error C3861: 'time': identifier not found
+         scoreCard.cpp
+     1>c:\users\andmin\documents\visual studio 2010\projects\game_proj\game_proj\scoreCard.h(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\andmin\documents\visual studio 2010\projects\game_proj\game_proj\scoreCard.h(8): warning C4183: 'scoreCard': missing return type; assumed to be a member function returning 'int'
+     1>c:\users\andmin\documents\visual studio 2010\projects\game_proj\game_proj\scoreCard.h(9): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\andmin\documents\visual studio 2010\projects\game_proj\game_proj\scoreCard.h(9): warning C4183: 'scoreCard': missing return type; assumed to be a member function returning 'int'
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\conio.h(21): error C2143: syntax error : missing ';' before 'string'
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\conio.h(21): error C2059: syntax error : 'string'
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\conio.h(21): error C2143: syntax error : missing ';' before '{'
+     1>c:\Program Files\Microsoft Visual Studio 10.0\VC\include\conio.h(21): error C2447: '{' : missing function header (old-style formal list?)
+     1>scoreCard.cpp(8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>scoreCard.cpp(15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>Done Building Project "C:\Users\Andmin\Documents\Visual Studio 2010\Projects\game_proj\game_proj\game_proj.vcxproj" (build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:04.93
+Time Elapsed 00:00:04.78

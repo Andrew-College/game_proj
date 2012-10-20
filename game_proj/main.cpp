@@ -1,6 +1,7 @@
 //local includes
 #include "includers.h"
 #include "validator.h"
+#include "scoreCard.h"
 #include <string>
 #include <ctime>
 #include <vector>
@@ -39,8 +40,9 @@ int j = 0;
 string theCache = "H";
 string theMap[100];
 vector<string> aMap;
-vector<int> theScore;
-vector<int>::const_iterator iter;
+vector<ScoreCard> theScore;
+vector<ScoreCard>::const_iterator iter;
+ifstream inFile("highscores.txt");
 
 using namespace std;
 ///////////////////////////////////////////
@@ -215,6 +217,10 @@ int game(){
 	return 0;
 }
 int highScore(){
+
+	for(iter = theScore.begin(); iter != theScore.end(); ++iter){
+		theScore.push_back(iter*.load(inFile));
+	}
 
 	if(theScore.size()!=0){
 		for(iter = theScore.begin(); iter != theScore.end(); ++iter){
