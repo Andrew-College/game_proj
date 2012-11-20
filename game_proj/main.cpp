@@ -3,9 +3,14 @@ There are a number of things are commented out, this is because they are WIP whe
 */
 
 //local includes
-#include "includers.h"
 #include "validator.h"
-//#include "scoreCard.h"
+#include <stdio.h>
+#include <conio.h>
+#include <iostream>
+#include <Windows.h>
+#include <ctype.h>
+#include <limits>
+#include <fstream>
 #include <string>
 #include <ctime>
 #include <vector>
@@ -13,6 +18,7 @@ There are a number of things are commented out, this is because they are WIP whe
 bool didntLose = false;
 int score = 0;
 string name;
+void ddMenu();
 
 //namespace section
 using namespace std;
@@ -419,4 +425,9 @@ bool win(){
 		return true;
 	}
 	return false;
+}
+
+void ddMenu(){
+	setCursor(ballX,ballY);
+	//NEED LOGIN PAGE
 }

@@ -1,4 +1,10 @@
-#include "includers.h"
+#include <stdio.h>
+#include <conio.h>
+#include <iostream>
+#include <Windows.h>
+#include <ctype.h>
+#include <limits>
+#include <fstream>
 #include <iostream>
 
 using namespace std;

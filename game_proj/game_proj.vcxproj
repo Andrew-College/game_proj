@@ -78,7 +78,6 @@
     <ClCompile Include="scoreCard.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="includers.h" />
     <ClInclude Include="scoreCard.h" />
     <ClInclude Include="validator.h" />
   </ItemGroup>
