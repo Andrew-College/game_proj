@@ -5,6 +5,7 @@
 #include <ctype.h>
 #include <limits>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <ctime>
 #include <vector>
@@ -35,37 +36,46 @@ bool isItString(string choice){
 	}
 	return true;
 }
-int exists(string name){
+bool exists(string name, int pass){
+	std::stringstream out;
+	out << pass;
 	string currentLine = "";
-	ifstream myfile ("passwd");
+	ifstream myfile ("login");
+	string comp = name + "." + out.str();
 	if (myfile.is_open())
 	{
 		while ( myfile.good() )
 		{
 			getline(myfile,currentLine);
-			if(currentLine.find(name)){
-				return currentLine.find(currentLine.find(name));
+			if(currentLine.find(comp)){
+				return (currentLine.find(comp))?true:false;
 			}
+
 		}
 	}
 	return -1;
 }
-bool password(string name, int passwd){
-	int count = 0;
-	string currentLine = "";
-	if(exists(name) != -1 && isItInt(passwd)){
-		currentLine = "";
-		ifstream myfile ("passwd");
-		if (myfile.is_open())
-		{
-			while ( myfile.good() )
-			{
-				if(exists(name)==count){
-					getline (myfile,currentLine);
-				}
-			}
-		}
-		return true;
-	}
-	return false;
-}
+//bool password(string name, int passwd){
+//	int count = 0;
+//	string currentLine = "";
+//	if(exists(name) != -1 && isItInt(passwd)){
+//		currentLine = "";
+//		ifstream myfile ("login");
+//		if (myfile.is_open())
+//		{
+//			while ( myfile.good() )
+//			{
+//				getline (myfile,currentLine);
+//				if(exists(name)==count){
+//					std::stringstream out;
+//					out << passwd;
+//					if((string)currentLine.substr(currentLine.find(".")+1, (int)currentLine.length()) == out.str()){
+//						return true;
+//					}
+//				}
+//			}
+//			myfile.close();
+//		}
+//	}
+//	return false;
+//}

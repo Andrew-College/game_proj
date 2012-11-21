@@ -84,17 +84,17 @@ string login(){
 		cout << "Password; ";
 		cin >> paswd;
 
-		if(password(name,paswd)){
-			break;
+		if(exists(name,paswd)){
+			return name;
 		}else{
 			string name = "";
 			int paswd = 0;
 			cin.clear();
 			cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+			system("cls");
 		}
 
 	}
-	return name;
 }
 
 int main_menu(){
