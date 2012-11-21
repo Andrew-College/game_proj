@@ -75,10 +75,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="scoreCard.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="scoreCard.h" />
     <ClInclude Include="validator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

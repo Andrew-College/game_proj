@@ -18,15 +18,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="scoreCard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="validator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="scoreCard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
