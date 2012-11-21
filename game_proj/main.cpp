@@ -40,6 +40,7 @@ void physics();
 void printCbyC(string input, int wait);
 void setCursor(int x, int y);
 int findBall();
+string login();
 void setCursorPos(int x, int y);
 int matriarray[3][8] = {{/*X coordinates*/0,1,1,1,0,-1,-1,-1},{/*Y coordinates*/-1,-1,0,1,1,1,0,-1},{'|'/*12 o clock*/,'/','-',/*lower*/'\\','|'/*6 o clock*/,'/','-',/*upper*/'\\'}};
 int count = 0;
@@ -50,8 +51,9 @@ int i = 0;
 int j = 0;
 string theCache = "H";
 string theMap[100];
+
 //vector<string> aMap;
-vector</*ScoreCard commented out because of bugs*/int> theScore;
+vector<string[3]> theScore;
 vector</*ScoreCard*/int>::const_iterator iter;
 //ifstream inFile("highscores.txt");
 
@@ -63,8 +65,36 @@ using namespace std;
 //The main part, the bit that calls everything
 int main(){
 	welcome();
+	login();
 	main_menu();
 	return 0;
+}
+
+string login(){
+	string name = "";
+	int paswd = 0;
+	while(true){
+
+
+
+		cout << "LOGIN\n\n" << endl;
+		cout << "Name; ";
+		cin >> name;
+
+		cout << "Password; ";
+		cin >> paswd;
+
+		if(password(name,paswd)){
+			break;
+		}else{
+			string name = "";
+			int paswd = 0;
+			cin.clear();
+			cin.ignore((numeric_limits<streamsize>::max)(), '\n');
+		}
+
+	}
+	return name;
 }
 
 int main_menu(){
@@ -192,7 +222,7 @@ int tutorial(/*Introduce the main concepts of the game*/){
 	//cout << "enter your name here;";
 	//cin >> name;
 	//theScore.push_back(new ScoreCard(name,"tutorial.txt",score));
-	theScore.push_back(score);
+	//theScore.push_back(score);
 	return 0;
 }
 int game(){
@@ -231,17 +261,14 @@ int game(){
 		//cout << "enter your name here;";
 		//cin >> name;
 		//theScore.push_back(new ScoreCard(name,"tutorial.txt",score));
-		theScore.push_back(score);
+		//theScore.push_back(score);
 	}
 	return 0;
 }
 int highScore(){
 
 	if(theScore.size()!=0){
-		for(iter = theScore.begin(); iter != theScore.end(); ++iter){
-			cout << *iter <<endl;
-			Sleep(300);
-		}
+
 	}else{
 		cout << "no scores here yet!" << endl;
 	}
@@ -282,9 +309,7 @@ bool load(string input){
 			++count;
 		}
 		myfile.close();
-
 	} else{
-
 		cout << "ERROR: can't open file.\nAre you sure you have the file in the right folder?" << endl;
 		return false;
 	}
@@ -383,7 +408,7 @@ void physics(){
 	theCache = (string)(theMap[ballY+matriarray[1][i]].substr(ballX+matriarray[0][i],1));
 }
 bool enterWait(int timeout){
- 	time_t start = time(0);
+	time_t start = time(0);
 	while(true){
 		if(difftime(time(0),start) >= timeout){
 			return false;
