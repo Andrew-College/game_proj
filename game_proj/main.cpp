@@ -35,6 +35,7 @@ void printCbyC(string input, int wait);
 void setCursor(int x, int y);
 int findBall();
 void setCursorPos(int x, int y);
+string map();
 int matriarray[3][8] = {{/*X coordinates*/0,1,1,1,0,-1,-1,-1},{/*Y coordinates*/-1,-1,0,1,1,1,0,-1},{'|'/*12 o clock*/,'/','-',/*lower*/'\\','|'/*6 o clock*/,'/','-',/*upper*/'\\'}};
 int count = 0;
 int ballX = 0;
@@ -196,6 +197,7 @@ int game(){
 	ballX = 0;
 	ballY = 0;
 	score = 0;
+	string map = map() + ".txt";
 	if(load("tutorial.txt")){
 
 		Sleep(1000);
@@ -419,4 +421,15 @@ bool win(){
 		return true;
 	}
 	return false;
+}
+string map(){
+	string choice = "";
+	system("cls");
+	cout << "Tutorial" << endl;
+	cout << "Level1" << endl;
+	cout << "Level2" << endl;
+	cout << "Level3" << endl;
+	cout << "Level4" << endl;
+	cout << "Level5" << endl;
+	return choice;
 }
