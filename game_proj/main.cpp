@@ -28,6 +28,7 @@ int welcome();
 int tutorial();
 int highScore();
 bool isItInt();
+string map();
 bool load(string input);
 int test;
 int game();
@@ -232,7 +233,7 @@ int game(){
 	ballX = 0;
 	ballY = 0;
 	score = 0;
-	if(load("tutorial.txt")){
+	if(load(map())){
 
 		Sleep(1000);
 		while(!didntLose){
@@ -288,6 +289,22 @@ void printCbyC(string input, int wait){
 		cout << input[i];
 		Sleep(wait);
 	}
+}
+string map(){//depending on what I learn from Boost, this method will loop through the folder, exclude files listed in exclude
+	char mapChoice[] = {'T','R','W'};
+	string result[] = {"Tutorial.txt","Reverse.txt","Wiggler.txt"};
+	char *p = mapChoice;
+	char choice;
+	system("cls");
+	cout << "(T)utorial" << endl << "(R)everse" << endl << "(W)iggler" << endl;
+	cin >> choice;
+	for(i = 0; i < p[i]; i++){
+		if(choice == mapChoice[i]){
+			system("cls");
+			return result[i];
+		}
+	}
+	return "";
 }
 bool load(string input){
 	ballY = 0;
@@ -421,7 +438,21 @@ bool enterWait(int timeout){
 			}
 		}
 	}
-	return true;
+}
+bool enterWait(int timeout, int escaper){
+	time_t start = time(0);
+	while(true){
+		if(difftime(time(0),start) >= timeout){
+			return false;
+		}
+		if(kbhit()){
+			char enterPress = (int)getche();
+			if(enterPress == escaper){
+				return true;
+			}else{
+			}
+		}
+	}
 }
 bool win(){
 	if(theCache == "#"){
