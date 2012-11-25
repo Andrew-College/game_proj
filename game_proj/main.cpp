@@ -197,7 +197,7 @@ int tutorial(/*Introduce the main concepts of the game*/){
 	cout << "tutorial";
 	Sleep(800);
 	system("cls");
-	load("tutorial.txt");
+	load("Tutorial.txt");
 
 
 	Sleep(1500);
@@ -290,13 +290,14 @@ void printCbyC(string input, int wait){
 		Sleep(wait);
 	}
 }
+//Maps Completed
 string map(){//depending on what I learn from Boost, this method will loop through the folder, exclude files listed in exclude
-	char mapChoice[] = {'T','R','W'};
-	string result[] = {"Tutorial.txt","Reverse.txt","Wiggler.txt"};
+	char mapChoice[] = {'T','R','A','W','S','D'};
+	string result[] = {"Tutorial.txt","Reverse.txt", "Angled.txt","Wiggler.txt","Spiral.txt","Danger.txt"};
 	char *p = mapChoice;
 	char choice;
 	system("cls");
-	cout << "(T)utorial" << endl << "(R)everse" << endl << "(W)iggler" << endl;
+	cout << "(T)utorial" << endl << "(R)everse" << endl << "(A)ngled" << endl << "(W)iggler" << endl << "(S)piral" << endl << "(D)anger" << endl;
 	cin >> choice;
 	for(i = 0; i < p[i]; i++){
 		if(choice == mapChoice[i]){
