@@ -4,6 +4,7 @@ There are a number of things are commented out, this is because they are WIP whe
 
 //local includes
 #include "validator.h"
+#include "ScoreCard.h"
 #include <stdio.h>
 #include <conio.h>
 #include <iostream>
@@ -55,7 +56,8 @@ int j = 0;
 
 string theCache = "H";
 string theMap[100];
-vector<string[3]> theScore;
+vector<ScoreCard> theScore;
+//vector<string[3]> theScore;
 vector</*ScoreCard*/int>::const_iterator iter;
 //ifstream inFile("highscores.txt");
 
@@ -67,7 +69,8 @@ using namespace std;
 //The main part, the bit that calls everything
 int main(){
 	welcome();
-	name = login();
+	ScoreCard newScore = ScoreCard();
+	newScore.setName(login());
 	main_menu();
 	return 0;
 }
@@ -170,6 +173,9 @@ int welcome(/*Say hello to the nice people*/){
 //Where the menu switchs are sent
 int tutorial(/*Introduce the main concepts of the game*/){
 
+	ScoreCard& temp = newScore;
+	temp.setMapName("Tutorial");
+
 	string line;
 	system("cls");
 	printCbyC("Welcome to the", 150);
@@ -229,13 +235,15 @@ int tutorial(/*Introduce the main concepts of the game*/){
 	return 0;
 }
 int game(){
+	
+	ScoreCard& temp = newScore;
 
 	didntLose = false;
 	system("cls");
 	ballX = 0;
 	ballY = 0;
 	score = 0;
-	if(load(map())){
+	if(temp.setMapName(load(map()))){
 
 		Sleep(1000);
 		while(!didntLose){
@@ -261,10 +269,12 @@ int game(){
 				score++;
 			}
 		}
+		temp.setScore(score);
+
 		//cout << "enter your name here;";
 		//cin >> name;
 		//theScore.push_back(new ScoreCard(name,"tutorial.txt",score));
-		//theScore.push_back(score);
+		theScore.push_back(temp);
 	}
 	return 0;
 }
