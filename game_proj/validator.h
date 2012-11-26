@@ -47,13 +47,13 @@ bool exists(string name, int pass){
 		while ( myfile.good() )
 		{
 			getline(myfile,currentLine);
-			if(currentLine.find(comp)){
-				return (currentLine.find(comp))?true:false;
+			if(currentLine == comp){
+				return true;
 			}
 
 		}
 	}
-	return -1;
+	return false;
 }
 //bool password(string name, int passwd){
 //	int count = 0;
