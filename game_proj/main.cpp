@@ -33,7 +33,7 @@ bool isItInt();
 string map();
 bool load(string input);
 int test;
-int game();
+int game(ScoreCard& temp);
 bool enterWait(int timeout);
 bool win();
 void setAngle(int x, int y);
@@ -58,7 +58,7 @@ string theCache = "H";
 string theMap[100];
 vector<ScoreCard> theScore;
 //vector<string[3]> theScore;
-vector</*ScoreCard*/int>::const_iterator iter;
+vector<ScoreCard>::const_iterator iter;
 //ifstream inFile("highscores.txt");
 
 using namespace std;
@@ -69,8 +69,9 @@ using namespace std;
 //The main part, the bit that calls everything
 int main(){
 	welcome();
-	ScoreCard newScore = ScoreCard();
-	newScore.setName(login());
+	
+	
+	name = login();
 	main_menu();
 	return 0;
 }
@@ -104,14 +105,16 @@ string login(){
 }
 
 int main_menu(){
+	ScoreCard newScore = ScoreCard();
 	int choice = 0;
 	bool end = false;
-
+	newScore.setName(name);
 
 	do{
 		system("cls");
 		choice = 0;
 		score = 0;
+		newScore = ScoreCard();
 		cout << "MINI GOLF MANIA" << endl << endl;
 		cout << "Main Menu" << endl << "1. How to play." << endl << "2. Play Now!" << endl <<"3. High Scores." << endl <<"4. Quit"<<endl<<endl;
 		cin >> choice;
@@ -121,7 +124,7 @@ int main_menu(){
 				tutorial();
 				break;
 			case 2:
-				game();
+				game(newScore);
 				break;
 			case 3:
 				highScore();
@@ -173,8 +176,8 @@ int welcome(/*Say hello to the nice people*/){
 //Where the menu switchs are sent
 int tutorial(/*Introduce the main concepts of the game*/){
 
-	ScoreCard& temp = newScore;
-	temp.setMapName("Tutorial");
+	
+	
 
 	string line;
 	system("cls");
@@ -228,23 +231,20 @@ int tutorial(/*Introduce the main concepts of the game*/){
 		setAngle(ballX, ballY);
 		setPower();
 	}
-	//cout << "enter your name here;";
-	//cin >> name;
-	//theScore.push_back(new ScoreCard(name,"tutorial.txt",score));
-	//theScore.push_back(score);
 	return 0;
 }
-int game(){
+int game(ScoreCard& temp){
 	
-	ScoreCard& temp = newScore;
+	
 
 	didntLose = false;
 	system("cls");
 	ballX = 0;
 	ballY = 0;
 	score = 0;
-	if(temp.setMapName(load(map()))){
-
+	string mapName = map();
+	if(load(mapName)){
+		temp.setMapName(mapName);
 		Sleep(1000);
 		while(!didntLose){
 			setCursor(1,0);
@@ -271,9 +271,6 @@ int game(){
 		}
 		temp.setScore(score);
 
-		//cout << "enter your name here;";
-		//cin >> name;
-		//theScore.push_back(new ScoreCard(name,"tutorial.txt",score));
 		theScore.push_back(temp);
 	}
 	return 0;
@@ -281,7 +278,10 @@ int game(){
 int highScore(){
 
 	if(theScore.size()!=0){
-
+		cout << "Name\t\t\tMap\t\t\tScore" << endl;
+//		for(vector<ScoreCard> vec; vec& != theScore.end;vec++){
+			
+//		}
 	}else{
 		cout << "no scores here yet!" << endl;
 	}

@@ -13,16 +13,15 @@
 using namespace std;
 
 class ScoreCard{
-
+private:
 	int mScore;
 	string mMapName, mName;
 
 public:
-	scorecard();
-	scorecard(iName, iMapName, iScore);
+	ScoreCard scorecard();
 	void setName(string input);
 	void setMapName(string input);
 	void setScore(int input);
-
+	void print();
 };
 #endif

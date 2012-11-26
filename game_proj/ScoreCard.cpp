@@ -1,12 +1,19 @@
 #include "ScoreCard.h"
 
 
+	ScoreCard scorecard(){
+		
+	}
 	void ScoreCard::setName(string input){
-		mName = input;
+		this->mName = input;
 	}
 	void ScoreCard::setMapName(string input){
-		mMapName = input;
+		this->mMapName = input;
 	}
 	void ScoreCard::setScore(int input){
-		mScore = input;
+		this->mScore = input;
+	}
+
+	void ScoreCard::print(){
+		cout << this->mName << "\t\t\t" << this->mMapName << "\t\t\t" << this->mScore;
 	}
