@@ -17,6 +17,7 @@ There are a number of things are commented out, this is because they are WIP whe
 
 bool didntLose = false;
 int score = 0;
+string mapName = "";
 string name;
 void ddMenu();
 
@@ -50,10 +51,10 @@ int ballY = 0;
 string currentLine = "";
 int i = 0;
 int j = 0;
+
+
 string theCache = "H";
 string theMap[100];
-
-//vector<string> aMap;
 vector<string[3]> theScore;
 vector</*ScoreCard*/int>::const_iterator iter;
 //ifstream inFile("highscores.txt");
@@ -66,7 +67,7 @@ using namespace std;
 //The main part, the bit that calls everything
 int main(){
 	welcome();
-	login();
+	name = login();
 	main_menu();
 	return 0;
 }
@@ -86,6 +87,7 @@ string login(){
 		cin >> paswd;
 
 		if(exists(name,paswd)){
+
 			return name;
 		}else{
 			string name = "";
