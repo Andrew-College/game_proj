@@ -18,7 +18,7 @@ private:
 	string mMapName, mName;
 
 public:
-	ScoreCard scorecard();
+	ScoreCard();
 	void setName(string input);
 	void setMapName(string input);
 	void setScore(int input);

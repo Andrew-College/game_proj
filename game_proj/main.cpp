@@ -57,8 +57,6 @@ int j = 0;
 string theCache = "H";
 string theMap[100];
 vector<ScoreCard> theScore;
-//vector<string[3]> theScore;
-vector<ScoreCard>::const_iterator iter;
 //ifstream inFile("highscores.txt");
 
 using namespace std;
@@ -235,7 +233,7 @@ int tutorial(/*Introduce the main concepts of the game*/){
 }
 int game(ScoreCard& temp){
 	
-	
+	temp.setName(name);
 
 	didntLose = false;
 	system("cls");
@@ -276,12 +274,14 @@ int game(ScoreCard& temp){
 	return 0;
 }
 int highScore(){
-
+	
 	if(theScore.size()!=0){
 		cout << "Name\t\t\tMap\t\t\tScore" << endl;
-//		for(vector<ScoreCard> vec; vec& != theScore.end;vec++){
-			
-//		}
+		for(int vec = 0; vec != theScore.size(); vec++){
+			ScoreCard temp = theScore.at(vec);
+			temp.print();
+		}
+		
 	}else{
 		cout << "no scores here yet!" << endl;
 	}
@@ -317,7 +317,8 @@ string map(){//depending on what I learn from Boost, this method will loop throu
 			return result[i];
 		}
 	}
-	return "";
+
+return "";
 }
 bool load(string input){
 	ballY = 0;
@@ -339,8 +340,12 @@ bool load(string input){
 			++count;
 		}
 		myfile.close();
+		count = 0;
 	} else{
 		cout << "ERROR: can't open file.\nAre you sure you have the file in the right folder?" << endl;
+		Sleep(1000);
+		cout << "That map does not exist, did you type the Choice in lowercase?";
+		Sleep(3000);
 		return false;
 	}
 	return true;
