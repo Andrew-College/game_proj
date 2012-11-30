@@ -45,7 +45,6 @@ void setCursor(int x, int y);
 int findBall();
 string login();
 void setCursorPos(int x, int y);
-string map();
 int matriarray[3][8] = {{/*X coordinates*/0,1,1,1,0,-1,-1,-1},{/*Y coordinates*/-1,-1,0,1,1,1,0,-1},{'|'/*12 o clock*/,'/','-',/*lower*/'\\','|'/*6 o clock*/,'/','-',/*upper*/'\\'}};
 int count = 0;
 int ballX = 0;
@@ -241,15 +240,9 @@ int game(ScoreCard& temp){
 	ballX = 0;
 	ballY = 0;
 	score = 0;
-<<<<<<< HEAD
-	string map = map() + ".txt";
-	if(load("tutorial.txt")){
-
-=======
 	string mapName = map();
 	if(load(mapName)){
 		temp.setMapName(mapName);
->>>>>>> origin/CA2
 		Sleep(1000);
 		while(!didntLose){
 			setCursor(1,0);
@@ -507,21 +500,8 @@ bool win(){
 	}
 	return false;
 }
-<<<<<<< HEAD
-string map(){
-	string choice = "";
-	system("cls");
-	cout << "Tutorial" << endl;
-	cout << "Level1" << endl;
-	cout << "Level2" << endl;
-	cout << "Level3" << endl;
-	cout << "Level4" << endl;
-	cout << "Level5" << endl;
-	return choice;
-=======
 
 void ddMenu(){
 	setCursor(ballX,ballY);
 	//NEED LOGIN PAGE
->>>>>>> origin/CA2
 }

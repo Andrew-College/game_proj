@@ -1,0 +1,1 @@
+print the point around the ball, goto a timeout  method, if it returns true
