@@ -1,22 +1,54 @@
-﻿Build started 28/11/2012 01:00:31.
-     1>Project "C:\Users\Andmin\Documents\GitHub\game_proj\game_proj\game_proj.vcxproj" on node 2 (build target(s)).
+﻿Build started 03/08/2013 18:39:56.
+     1>Project "C:\Users\andrew\Documents\Visual Studio 2010\Projects\game_proj\game_proj\game_proj.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Release\game_proj.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Release\game_proj.unsuccessfulbuild".
        ClCompile:
-         All outputs are up-to-date.
-       Link:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Andmin\Documents\GitHub\game_proj\Release\game_proj.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\game_proj.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Andmin\Documents\GitHub\game_proj\Release\game_proj.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Andmin\Documents\GitHub\game_proj\Release\game_proj.lib" /MACHINE:X86 Release\main.obj
-         Release\ScoreCard.obj
-         Generating code
-         Finished generating code
-         game_proj.vcxproj -> C:\Users\Andmin\Documents\GitHub\game_proj\Release\game_proj.exe
-       Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Andmin\Documents\GitHub\game_proj\Release\game_proj.exe;#1" /manifest Release\game_proj.exe.intermediate.manifest
-       FinalizeBuildStatus:
-         Deleting file "Release\game_proj.unsuccessfulbuild".
-         Touching "Release\game_proj.lastbuildstate".
-     1>Done Building Project "C:\Users\Andmin\Documents\GitHub\game_proj\game_proj\game_proj.vcxproj" (build target(s)).
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>main.cpp(225): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 main.cpp(187) : definition of 'i' ignored
+                 main.cpp(54) : definition of 'i' used
+     1>main.cpp(225): warning C4258: 'i' : definition from the for loop is ignored; the definition from the enclosing scope is used
+                 main.cpp(187) : definition of 'i' ignored
+                 main.cpp(54) : definition of 'i' used
+     1>main.cpp(244): error C2064: term does not evaluate to a function taking 0 arguments
+     1>main.cpp(248): error C2064: term does not evaluate to a function taking 0 arguments
+     1>main.cpp(281): error C2601: 'highScore' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(300): error C2601: 'setCursor' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(304): error C2601: 'printCbyC' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(311): error C2365: 'map' : redefinition; previous definition was 'data variable'
+                 main.cpp(244) : see declaration of 'map'
+     1>main.cpp(311): error C2601: 'map' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(328): error C2601: 'load' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(358): error C2601: 'setAngle' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(377): error C2601: 'setPower' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(393): error C2601: 'shoot' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(418): error C2601: 'physics' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(450): error C2601: 'enterWait' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(465): error C2601: 'enterWait' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(480): error C2601: 'win' : local function definitions are illegal
+                 main.cpp(235): this line contains a '{' which has not yet been matched
+     1>main.cpp(508): error C2143: syntax error : missing ';' before '<<'
+     1>main.cpp(509): error C2143: syntax error : missing ';' before '{'
+     1>main.cpp(518): error C2440: 'return' : cannot convert from 'std::string' to 'int'
+                 No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+     1>main.cpp(519): error C2143: syntax error : missing ';' before '=='
+     1>main.cpp(521): error C2143: syntax error : missing ';' before '{'
+     1>main.cpp(524): error C2143: syntax error : missing ';' before '>>'
+     1>main.cpp(526): fatal error C1075: end of file found before the left brace '{' at 'main.cpp(509)' was matched
+     1>Done Building Project "C:\Users\andrew\Documents\Visual Studio 2010\Projects\game_proj\game_proj\game_proj.vcxproj" (build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:01.92
+Time Elapsed 00:00:00.63

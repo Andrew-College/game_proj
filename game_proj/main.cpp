@@ -241,15 +241,13 @@ int game(ScoreCard& temp){
 	ballX = 0;
 	ballY = 0;
 	score = 0;
-<<<<<<< HEAD
 	string map = map() + ".txt";
 	if(load("tutorial.txt")){
 
-=======
+
 	string mapName = map();
 	if(load(mapName)){
 		temp.setMapName(mapName);
->>>>>>> origin/CA2
 		Sleep(1000);
 		while(!didntLose){
 			setCursor(1,0);
@@ -399,7 +397,7 @@ void shoot(){
 		//setCursor(0,13); //This printed out what was in the cache, handy for collision bugs
 		//cout << theCache;
 		setCursor(ballX,ballY);
-		cout << ',';
+		cout << theCache;
 		physics();
 		if(theCache == "H"){
 			score++;
